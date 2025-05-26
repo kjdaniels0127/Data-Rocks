@@ -1,3 +1,4 @@
+# SQL code to get the regions, continents, and countries of Asia, Europe, and America
 SELECT DISTINCT target_continent,target_region, target_subcontinent, target_country_region,
 CONCAT (target_region,"-",target_continent) AS region_continent_key,
 CONCAT(target_country_region,"-",target_continent) AS country_continent_key,
