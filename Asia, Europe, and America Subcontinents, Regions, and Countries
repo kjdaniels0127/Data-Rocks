@@ -1,0 +1,9 @@
+# SQL code to get the regions, continents, and countries of Asia, Europe, and America
+SELECT DISTINCT target_continent,target_region, target_subcontinent, target_country_region,
+CONCAT (target_region,"-",target_continent) AS region_continent_key,
+CONCAT(target_country_region,"-",target_continent) AS country_continent_key,
+CONCAT(target_subcontinent,"-",target_continent) AS subcontinent_continent_key
+FROM `bigquery-public-data.google_ads_geo_mapping_us_central1.ads_geo_region_mapping` 
+WHERE target_continent IN ('Asia','Europe','Americas')
+ORDER BY target_continent DESC
+LIMIT 5000
