@@ -1,6 +1,6 @@
 This is a repository showcase all of my data analytics projects. I truly believe that data can be used to solve any business problem. There are six steps to ensure a successful data analysis project.
 1st step in the data analytics process is Asking Questions: This helps with defining the problems the data analytics project will solve and what the stakeholder/client expectations are for the project. 
-The SMART framework is a good tool for asking questions about the project. SMART framework measures whether questions are Specific, Measurable, Action-oriented, Relevant, and Time-Bound
+ SMART framework measures whether questions are Specific, Measurable, Action-oriented, Relevant, and Time-Bound. I attempt to utilze this framework when asking questions to ensure precision, measurability, and relevance in my data analysis. 
 2nd step in the data analytics process is Data Preparation: This involves things like data collection, data transformation, ensuring the data is ethical, and that the data came from a good source.
 I would define a good data source as reliable, original, comprhensive, current, and cited. 
 3rd step in the data analytics process is Processing the Data to ensure it's clean and accurate: This is to make sure the data is clean. Examples of uncleaned data include too little data, inaccurate data with errors, inconsistent data or outdated data. 
