@@ -1,0 +1,11 @@
+***This is a code containing all of the queires from SQL I utilized in this data analytics project*** I'll orgainze them by number for clarity
+SQL Query 1: Countries college enrollment rates 1992-2022
+SELECT DISTINCT indicator_name, 
+ROUND (value,2) AS value_rounded,
+country_name, 
+country_code, 
+year
+FROM `bigquery-public-data.world_bank_health_population.health_nutrition_population` 
+WHERE (indicator_name LIKE '%enrollment, tertiary%')
+AND country_code IN ('CAN','NGA','FRA','AFG','MLI','USA','COL','COG','DOM','GHA','IND','ZAF') 
+AND year BETWEEN 1992 AND 2022;
