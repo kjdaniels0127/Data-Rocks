@@ -1,4 +1,4 @@
-##This is a code containing all of the queires from SQL I utilized in this data analytics project*** I'll orgainze them by number for clarity
+##This is a code containing all of the queires from SQL I utilized in this data analytics project I'll orgainze them by number for clarity##
 SQL Query 1: Countries college enrollment rates 1992-2022
 SELECT DISTINCT indicator_name, 
 ROUND (value,2) AS value_rounded,
