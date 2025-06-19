@@ -29,4 +29,6 @@ I believe data can solve virtually any problem when analyzed correctly. To guide
 - **My data analytics projects or case studies are attached as zip files!**
 -    I have completed the following projects: **Geographic Data Analysis of Asia, America, and Europe**
 
-
+[SQL] (https://365datascience.com/resources/blog/2018-07-Why-You-Should-Learn-SQL-min-1.png)
+[Data Rocking Analytics] (https://www.visionfulfill.com/wp-content/uploads/2021/04/69015594_m-e1619728547181.jpg)
+[Data Rocking Analytics] (https://wallpaperaccess.com/full/3457552.jpg)
