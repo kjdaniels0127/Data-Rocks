@@ -1,4 +1,4 @@
-Welcome to my data analytics portfolio — a collection of projects that demonstrate my ability to extract insights, solve business problems, and communicate data effectively using tools like **Excel, SQL, and Tableau**.
+Welcome to my data analytics portfolio — a collection of projects that demonstrate my ability to extract insights, solve business problems, and communicate data effectively using tools like **Excel, SQL, Powerpoint and Tableau**.
 
 I believe data can solve virtually any problem when analyzed correctly. To guide my approach, I follow a structured **6-step analytics process**:
 
