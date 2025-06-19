@@ -29,7 +29,7 @@ I believe data can solve virtually any problem when analyzed correctly. To guide
 - **My data analytics projects or case studies are attached as zip files!**
 -    I have completed the following projects: **Geographic Data Analysis of Asia, America, and Europe**
 
- ![Data Analytics](https://github.com/user-attachments/assets/4d0fdfdb-e33c-43a8-b96a-1cebadb860f3
+ ![Data Analytics](https://github.com/user-attachments/assets/4d0fdfdb-e33c-43a8-b96a-1cebadb860f3) 
  ![SQL Pic](https://github.com/user-attachments/assets/387cb6f5-60e8-49d0-ba5f-fd78a13ab398)
 
 
