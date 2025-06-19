@@ -6,7 +6,7 @@ I believe data can solve virtually any problem when analyzed correctly. To guide
    Define the problem clearly using the SMART framework (Specific, Measurable, Action-oriented, Relevant, Time-Bound). Then generate questions based off of this framework. 
 
 2. **Prepare the Data**  
-   Gather reliable, ethical data from reputable sources and ensure it's suitable for the data analytics questions you are attempting to answer.
+   Gather reliable, ethical data from reputable sources and ensure it's suitable and the data is as unbiased as possible for the data analytics questions you are attempting to answer.
 
 3. **Clean the Data**  
    Clean the data by looking for missing, outdated, and transform the data into useful formats for the data analytics process.
