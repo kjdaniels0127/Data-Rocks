@@ -25,5 +25,6 @@ I believe data can solve virtually any problem when analyzed correctly. To guide
 - **SQL**: Basic to Intermeidate Queries like Select, From, Where, Concat, column aliasing.
 - **Tableau/Power BI**: Creating data visualizations like heatmaps, bar graphs, scatterplots, or data summary tables.
 
-- Check out my branches of excel and SQL to get samples of my excel workbooks and SQL queries I have used for data analysis. 
-   
+- Check out my branches of excel and SQL to get samples of my excel workbooks and SQL queries I have used for data analysis.
+
+
