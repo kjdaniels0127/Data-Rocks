@@ -1,6 +1,7 @@
 # Storing all of my SQL Codes as files in this sql branch 
 
 This read me includes the reasoning behind each of the SQL codes and the projects each SQL code is attached to.
+
 **Project 1: Geographic Data Analysis of Asia, Europe, and America**
 See the Asia, Europe, and America subcontinent, regions, and countries file for details about the SQL code.
 **Purpose of this code is to combine regions,continents, and subcontinents as various keys. So that in excel I can use XLOOKUP to get the continent of each country, region, and subcontinent**
