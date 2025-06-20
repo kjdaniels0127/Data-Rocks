@@ -1,4 +1,4 @@
-### Storing all of my SQL Codes as files in this sql branch 
+# Storing all of my SQL Codes as files in this sql branch 
 
 This read me includes the reasoning behind each of the SQL codes and the projects each SQL code is attached to.
 **Project 1: Geographic Data Analysis of Asia, Europe, and America**
@@ -7,7 +7,7 @@ See the Asia, Europe, and America subcontinent, regions, and countries file for 
 This SQL code is fundamental in assistant me with the column charts measuring the number of regions, continents, and subcontinents in Asia, Europe, and America. 
 
 **Project 2: The Cost of Inequality: Connection between socioeconomic and health outcomes for 12 countries**
-# 12 countries included in this project are: Canada, United States of America, France, Mali, Nigeria, Afghanistan, Ghana, Congo, India, Dominican Republic, South Africa, and Colombia.
+### 12 countries included in this project are: Canada, United States of America, France, Mali, Nigeria, Afghanistan, Ghana, Congo, India, Dominican Republic, South Africa, and Colombia.
 Here's a list of the different questions I am using to guide my data analysis for this project
 1. 	How has college enrollment affected obesity rates across countries from 1992 to 2022?
 2. 	How have mortality rate trends differed across countries based on income levels between 1992 and 2022?
