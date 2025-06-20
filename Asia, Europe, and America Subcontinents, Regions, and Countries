@@ -1,4 +1,5 @@
-# SQL code to get the regions, continents, and countries of Asia, Europe, and America
+##SQL code to get the regions, continents, and countries of Asia, Europe, and America4
+**Purpose of this code is to combine regions,continents, and subcontinents as various keys. So that in excel I can use XLOOKUP to get the continent of each country, region, and subcontinent**
 SELECT DISTINCT target_continent,target_region, target_subcontinent, target_country_region,
 CONCAT (target_region,"-",target_continent) AS region_continent_key,
 CONCAT(target_country_region,"-",target_continent) AS country_continent_key,
