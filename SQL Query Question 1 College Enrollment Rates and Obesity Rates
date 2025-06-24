@@ -1,4 +1,5 @@
-##This is a code containing all of the queires from SQL I utilized in this data analytics project I'll orgainze them by number for clarity##
+
+This 1st query is selecting the indicator name of college enrollment (which is teritary enrollment in the dataset). Measuring college enrollment rates between 1992 and 2002 
 SQL Query 1: Countries college enrollment rates 1992-2022
 SELECT DISTINCT indicator_name, 
 ROUND (value,2) AS value_rounded,
