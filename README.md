@@ -1,17 +1,17 @@
 **Welcome to my data analytics portfolio** 
 
-Here's a collection of projects that demonstrate my ability to extract insights, solve business problems, and communicate data effectively using tools like **Excel, SQL, Powerpoint and Tableau**.
+Here's a collection of projects that demonstrate my ability to extract data insights, solve business problems, and communicate data effectively using tools like **Excel, SQL, Powerpoint and Tableau**.
 
 I believe data can solve virtually any problem when analyzed correctly. To guide my approach, I follow a structured **6-step analytics process**:
 
 1. **Ask Smart Questions**  
-   Define the problem clearly using the SMART framework (Specific, Measurable, Action-oriented, Relevant, Time-Bound). Then generate questions based off of this framework. 
+   Define the problem clearly using the SMART framework (Specific, Measurable, Action-oriented, Relevant, Time-Bound). Communicate clearly with the stakeholder and client to fully understand the expectations Then generate questions based on the client and stakeholder's needs using the SMART framework. 
 
 2. **Prepare the Data**  
    Gather reliable, ethical data from reputable sources and ensure it's suitable and the data is as unbiased as possible for the data analytics questions you are attempting to answer.
 
 3. **Clean the Data**  
-   Clean the data by looking for missing, outdated, and transform the data into useful formats for the data analytics process.
+   Clean the data utilizing tools like ***Excel, SQL, coding programs (Python and R)***  by looking for missing, outdated, and transform the data into useful formats for the data analytics process.
    
 5. **Analyze the Data**  
    Use aggregation, transformation, and data calculation methods to uncover patterns and insights.
@@ -24,7 +24,7 @@ I believe data can solve virtually any problem when analyzed correctly. To guide
 
    ## 🔧 Tools & Skills Demonstrated:
 - **Excel**: Pivot Tables, XLOOKUP, IF statements, Charts, and Complex Formulas
-- **SQL**: Basic to Intermeidate Queries like Select, From, Where, Concat, column aliasing.
+- **SQL**: Basic to Intermeidate Queries like Select, From, Where, Concat, column aliasing. 
 - **Tableau/Power BI**: Creating data visualizations like heatmaps, bar graphs, scatterplots, or data summary tables.
 
 - Check out my branches of excel and SQL to get samples of my excel workbooks and SQL queries I have used for data analysis.
