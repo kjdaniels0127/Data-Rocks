@@ -1,0 +1,86 @@
+1st query is for calculating the college enrollment rate for all genders from years 2013-2020
+SELECT DISTINCT indicator_name, 
+ROUND (value,2) AS value_rounded,
+country_name, 
+country_code, 
+year
+FROM `bigquery-public-data.world_bank_health_population.health_nutrition_population` 
+WHERE (indicator_name LIKE '%enrollment, tertiary%')
+AND country_code IN ('CAN','NGA','FRA','AFG','MLI','USA','COL','COG','DOM','GHA','IND','ZAF') 
+AND year BETWEEN 2013 AND 2020
+
+2nd query is for calculating the college enrollment rate for all genders from years 2005-2012
+SELECT DISTINCT indicator_name, 
+ROUND (value,2) AS value_rounded,
+country_name, 
+country_code, 
+year
+FROM `bigquery-public-data.world_bank_health_population.health_nutrition_population` 
+WHERE (indicator_name LIKE '%enrollment, tertiary%')
+AND country_code IN ('CAN','NGA','FRA','AFG','MLI','USA','COL','COG','DOM','GHA','IND','ZAF') 
+AND year BETWEEN 2005 AND 2012
+
+3rd query is for calculating the incidence HIV rate for ages 15-49 from years 2005-2012
+SELECT indicator_name AS measuring_factor,
+ ROUND(AVG(value), 2) AS average_value,
+ country_code, 
+ country_name,
+ year,
+ FROM `bigquery-public-data.world_bank_health_population.health_nutrition_population` 
+WHERE indicator_name LIKE '%Incidence of HIV, ages 15-49 (per 1,000 uninfected population ages 15-49)%'
+AND year BETWEEN 2005 and 2012
+AND country_code IN ('AFG','MLI','COG','GHA','NGA','DOM','IND','COL','ZAF','CAN','FRA','USA')
+GROUP BY indicator_name, year, country_code, country_name
+
+4th query is for calculating the incidence HIV rate for all people from 2013-2020
+SELECT indicator_name AS measuring_factor,
+country_name,
+country_code,
+ROUND(value,2) AS measuring_value
+ FROM `bigquery-public-data.world_bank_health_population.health_nutrition_population` 
+WHERE indicator_name LIKE '%Incidence of HIV, all (per 1,000 uninfected population)%'
+AND year BETWEEN 2013 and 2020
+AND country_code IN ('USA','FRA','CAN','ZAF','COL','IND','DOM','NGA', 'GHA', 'COG', 'MLI', 'AFG')
+
+5th query is for calculating the incidence HIV rate for people above 50 from 2013-2020
+SELECT indicator_name AS measuring_factor,
+ ROUND(value, 2) AS measuring_value,
+ country_code, 
+ country_name,
+ year,
+ FROM `bigquery-public-data.world_bank_health_population.health_nutrition_population` 
+WHERE indicator_name LIKE '%Incidence of HIV, ages 50+ (per 1,000 uninfected population ages 50+)%'
+AND year BETWEEN 2013 and 2020
+AND country_code IN ('AFG','MLI','COG','GHA','NGA','DOM','IND','COL','ZAF','CAN','FRA','USA') 
+
+6th query is for calculating the incidence HIV rate for people between ages 15-49
+SELECT indicator_name AS measuring_factor,
+ ROUND(value, 2) AS measuring_value,
+ country_code, 
+ country_name,
+ year,
+ FROM `bigquery-public-data.world_bank_health_population.health_nutrition_population` 
+WHERE indicator_name LIKE '%Incidence of HIV, ages 15-49 (per 1,000 uninfected population ages 15-49)%'
+AND year BETWEEN 2013 and 2020
+AND country_code IN ('AFG','MLI','COG','GHA','NGA','DOM','IND','COL','ZAF','CAN','FRA','USA')
+
+7th query is for calculating the incidence HIV rate for all people
+SELECT indicator_name AS measuring_factor,
+ROUND(value,2) AS measuring_value,
+country_code,
+country_name,
+year,
+ FROM `bigquery-public-data.world_bank_health_population.health_nutrition_population` 
+WHERE indicator_name LIKE '%Incidence of HIV, all (per 1,000 uninfected population)%'
+AND year BETWEEN 2005 and 2012
+AND country_code IN ('USA','FRA','CAN','ZAF','COL','IND','DOM','NGA', 'GHA', 'COG', 'MLI', 'AFG')
+
+8th query is for calculating the incidence HIV rate for all people
+SELECT indicator_name AS measuring_factor,
+country_name,
+country_code,
+ROUND(value,2) AS measuring_value
+ FROM `bigquery-public-data.world_bank_health_population.health_nutrition_population` 
+WHERE indicator_name LIKE '%Incidence of HIV, all (per 1,000 uninfected population)%'
+AND year BETWEEN 2013 and 2020
+AND country_code IN ('USA','FRA','CAN','ZAF','COL','IND','DOM','NGA', 'GHA', 'COG', 'MLI', 'AFG')
