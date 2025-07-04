@@ -1,0 +1,68 @@
+1st query is for life expectancy for 1992 to 2022 for 12 select countries
+SELECT iso3 AS country_code, country_name, year, 
+indicator_name AS measuring_factor,
+lower_bound AS lower_range,
+estimate AS mid_range,
+upper_bound AS upper_range,
+ROUND((lower_bound + estimate + upper_bound) / 3,2) AS avg_value,
+CASE 
+  WHEN indicator_name = 'Healthy life expectancy (HALE) at age 60 (years)'
+  THEN 60 
+  ELSE 0 
+END AS calculated_avg_value
+FROM `social-factors-and-healthcare.world_health_organization_data.World Health Data` 
+WHERE iso3 IN ('AFG','CAN','FRA', 'NGA', 'USA','FRA','MLI','COL', 'COG','DOM','GHA','IND','ZAF')
+AND year BETWEEN 1992 and 2022
+AND indicator_name LIKE '%life expectancy%'
+
+2nd query is for mortality rate, neonatal for 1992 and 2022. 
+SELECT indicator_name,
+  country_code,
+  country_name, 
+  year,
+  ROUND(AVG(value),2) AS average_mortality_value
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+ WHERE indicator_name LIKE '%Mortality rate, neonatal%'
+  AND country_code IN ('CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF')
+  AND year BETWEEN 1992 AND 2022
+GROUP BY 
+  country_name, country_code, year, indicator_name
+
+3rd query is for infant mortality rate for 1992 and 2022.
+SELECT indicator_name,
+  country_code,
+  country_name, 
+  year,
+  ROUND(AVG(value),2) AS average_mortality_value
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+ WHERE indicator_name LIKE '%Mortality rate, infant%'
+  AND country_code IN ('CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF')
+  AND year BETWEEN 1992 AND 2022
+GROUP BY 
+  country_name, country_code, year, indicator_name 
+
+4th query Average Mortality for less than 5 year olds Rate 1992 to 2022
+SELECT indicator_name,
+  country_code,
+  country_name, 
+  year,
+  ROUND(AVG(value),2) AS average_mortality_value
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+ WHERE indicator_name LIKE '%Mortality rate, under-5%'
+  AND country_code IN ('CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF')
+  AND year BETWEEN 1992 AND 2022
+GROUP BY 
+  country_name, country_code, year, indicator_name
+
+5th query Average High Mortality Rates 1992 to 2022
+SELECT indicator_name,
+  country_code,
+  country_name, 
+  year,
+  ROUND(AVG(value),2) AS average_mortality_value
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+ WHERE indicator_name LIKE '%Mortality rate, adult%'
+  AND country_code IN ('CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF')
+  AND year BETWEEN 1992 AND 2022
+GROUP BY 
+  country_name, country_code, year, indicator_name
