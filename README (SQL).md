@@ -1,4 +1,4 @@
-Here are all of my **SQL Queries** utilized in my two data analytics projects
+Here are all of my **SQL Queries** utilized in my three data analytics projects
 ## Geographic Data Analysis Project:
 
 ### SQL Query: [Asia, America, and Europe Subcontinents, Regions, and Countries] (https://github.com/kjdaniels0127/Data-Rocks/blob/sql/Asia%2C%20Europe%2C%20and%20America%20Subcontinents%2C%20Regions%2C%20and%20Countries) 
