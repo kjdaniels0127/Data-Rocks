@@ -1,0 +1,99 @@
+This 1st query is for calculating the average raised blood pressure % between 1992 and 2002 for the selected project countries 
+SELECT iso3, country_name, 
+indicator_name AS measuring_factor,
+year,
+lower_bound, 
+estimate,
+upper_bound,
+ROUND((lower_bound + estimate + upper_bound)/3, 2) AS avg_value
+ FROM `social-factors-and-healthcare.world_health_organization_data.World Health Data` 
+WHERE indicator_name LIKE '%blood pressure%'
+AND year BETWEEN 1992 and 2002
+AND iso3 IN ('AFG','CAN','NGA','FRA','MLI','USA','COL','COG','DOM','GHA','IND','ZAF')
+
+This 2nd query is for calculating the average raised blood pressure % between 1992 and 2002 for the selected project countries 
+SELECT iso3, country_name, 
+indicator_name AS measuring_factor,
+year,
+lower_bound, 
+estimate,
+upper_bound,
+ROUND((lower_bound + estimate + upper_bound)/3, 2) AS avg_value
+ FROM `social-factors-and-healthcare.world_health_organization_data.World Health Data` 
+WHERE indicator_name LIKE '%blood pressure%' 
+AND year BETWEEN 2012 and 2022
+AND iso3 IN ('AFG','CAN','NGA','FRA','MLI','USA','COL','COG','DOM','GHA','IND','ZAF')
+
+3rd query is for calculating the average male unemploymeent rate between 1992 and 2002 for the select project countries
+SELECT country_code, year, indicator_name,
+ROUND(AVG(value), 2) AS avg_unemployment_rate,
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+WHERE country_code IN ('AFG','MLI','COG','GHA','NGA','DOM','IND','COL','ZAF','CAN','FRA','USA') 
+AND year BETWEEN 1992 and 2002
+AND indicator_name LIKE '%Unemployment, male (% of male labor force)%'
+GROUP BY country_code, year, indicator_name
+
+4th query is for calculating the average male unemployment rate between 2012 and 2022 for select project countries
+SELECT country_code, year, indicator_name,
+ROUND(AVG(value), 2) AS avg_unemployment_rate,
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+WHERE country_code IN ('AFG','MLI','COG','GHA','NGA','DOM','IND','COL','ZAF','CAN','FRA','USA') 
+AND year BETWEEN 2012 and 2022
+AND indicator_name LIKE '%Unemployment, male (% of male labor force)%'
+
+5th query is for calculating the average female unemployment rate between 1992 and 2002 for select project countries
+SELECT country_code, year, indicator_name,
+ROUND(AVG(value), 2) AS avg_unemployment_rate,
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+WHERE country_code IN ('AFG','MLI','COG','GHA','NGA','DOM','IND','COL','ZAF','CAN','FRA','USA') 
+AND year BETWEEN 1992 and 2002
+AND indicator_name LIKE '%Unemployment, female (% of female labor force)%'
+GROUP BY country_code, year, indicator_name
+
+6th query is for calculating the average female unemployment rate between 2012 and 2022 for select project countries
+SELECT country_code, year, indicator_name,
+ROUND(AVG(value), 2) AS avg_unemployment_rate,
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+WHERE country_code IN ('AFG','MLI','COG','GHA','NGA','DOM','IND','COL','ZAF','CAN','FRA','USA') 
+AND year BETWEEN 2012 and 2022
+AND indicator_name LIKE '%Unemployment, female (% of female labor force)%'
+GROUP BY country_code, year, indicator_name
+
+7th query is for calculating the average unemployment rate for all genders between 1992 and 2002 for select project countries
+SELECT country_code, year, indicator_name,
+ROUND(AVG(value), 2) AS avg_unemployment_rate,
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+WHERE country_code IN ('AFG','MLI','COG','GHA','NGA','DOM','IND','COL','ZAF','CAN','FRA','USA') 
+AND year BETWEEN 1992 and 2002
+AND indicator_name LIKE '%Unemployment, total (% of total labor force)%'
+GROUP BY country_code, year, indicator_name
+
+8th query is for calculating the average unemployment rate for all genders between 2012 and 2022 for select project countries
+SELECT country_code, year, indicator_name,
+ROUND(AVG(value), 2) AS avg_unemployment_rate,
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+WHERE country_code IN ('AFG','MLI','COG','GHA','NGA','DOM','IND','COL','ZAF','CAN','FRA','USA')
+AND year BETWEEN 2012 and 2022
+AND indicator_name LIKE '%Unemployment, total (% of total labor force)%'
+GROUP BY country_code, year, indicator_name 
+
+9th query is for calculating the suicide mortality rate for all genders between 2012 and 2022
+SELECT country_code,
+year,
+indicator_name,
+ROUND(AVG(value), 2) AS avg_suicide_value_per_100k
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+WHERE country_code IN ('AFG','MLI','COG','GHA','NGA','DOM','IND','COL','ZAF','CAN','FRA','USA')
+AND indicator_name LIKE '%Suicide mortality%'
+AND year BETWEEN 2012 and 2022
+GROUP BY country_code, year, indicator_name 
+
+10th query is for calculating the suicide mortality rate for all genders between 1992 and 2002
+SELECT country_name, year, 
+indicator_name AS measuring_factor,
+lower_bound AS lower_range,
+estimate AS mid,
+upper_bound AS upper_range,
+ROUND((lower_bound + estimate + upper_bound) / 3,2) AS avg_value
+ FROM `social-factors-and-healthcare.world_health_organization_data.World Health Data`
+WHERE indicator_name LIKE '%Obesity%'
