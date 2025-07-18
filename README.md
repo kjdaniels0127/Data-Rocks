@@ -41,6 +41,11 @@ I have completed the following projects: **Geographic Data Analysis of Asia, Ame
 ## Here's my visualizations for the Geographic Data Analysis of Asia, America, and Europe project 
 ![Asia, Europe, and Americas Geographic Visualization](https://github.com/user-attachments/assets/0080f884-cd1d-4950-b0de-eec052f8c551)
 
+**Data Insights about Americas, Asia, and Europe continents**
+1.Europe has the most regions and countries at 592 and 25, respectively.
+2.Americas has the least regions and countries at 242 and 12, respectively.
+3.There are 4 subcontinents in America, Asia, and Europe. 
+
 ## Here's my visualizations for The Cost of Inequality: Connection between socioeconomic status and healthcare outcomes for 12 countries.
 
 **Country Identifier Legend for the HIV Incidence Rates, health expenditure %, and income levels**
