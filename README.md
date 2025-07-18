@@ -23,8 +23,8 @@ I believe data can solve virtually any problem when analyzed correctly. To guide
    After sharing the data insights this is when the stakeholder or client can take action based on the data-driven recommendations.
 
    ## 🔧 Tools & Skills Demonstrated:
-- **Excel**: Pivot Tables, XLOOKUP, IF statements, Charts, and Complex Formulas
-- **SQL**: Basic to Intermeidate Queries like Select, From, Where, Concat, column aliasing. 
+- **Excel**: Pivot Tables, XLOOKUP, IF statements, Charts, Macros and Complex Formulas
+- **SQL**: Basic to Intermeidate Queries Select, From, Where, Concat, column aliasing. SQL Calculations using aggregate functions Sum,Average,Max, and Min of a column.
 - **Tableau/Power BI**: Creating data visualizations like heatmaps, bar graphs, scatterplots, or data summary tables.
 
 - Check out my branches of excel and SQL to get samples of my excel workbooks and SQL queries I have used for data analysis.
