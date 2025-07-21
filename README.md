@@ -55,10 +55,23 @@ I have completed the following projects: **Geographic Data Analysis of Asia, Ame
 ![Country Code Identifier as Country Names](https://github.com/user-attachments/assets/6c9bce1a-5185-4b37-a63d-88312ec83d7a)
 
 
-![Obesity Rates and College Enrollment Rates ](https://github.com/user-attachments/assets/fe8864e7-84c3-4439-bfea-7587a59e9987)
+![Obesity Rates and College Enrollment Rates ](https://github.com/user-attachments/assets/fe8864e7-84c3-4439-bfea-7587a59e9987) 
+
+1. Positive correlation between obesity rates and enrollment rates
+2. Outlier: South Africa relatively high obesity rate at 23.63% and mid college enrollment at 20.48% which is sixth among countries.
+
 ![Mortality Rate by Income](https://github.com/user-attachments/assets/daf48b95-834a-421e-bc13-a5f2fb326615)
+
+1. Strong correlation between mortality rates and income levels
+2. I was suprised to find that the upper middle income country South Africa 121.1 had higher mortality rate than lower middle income countries like Ghana 107.6 and about the same mortality rate Congo 122. 
 ![Life Expectancy and Health Expenditure % of GDP ](https://github.com/user-attachments/assets/f97248cb-f1e7-4b70-94a2-11365181032a)
+
+1. Slight to moderate positive correlation between health expenditure and life expectancy
+2. South Africa spent over 10% on health expenditure and low life expectancy of 61.44
+3. Afghanistan spent over 8% on health expenditure and low life expectancy of 60.25
 ![1992-2002 and 2012-2022 Unemployment Rate, BP Rate and Suicide Mortality Rate](https://github.com/user-attachments/assets/be112836-b7b2-460d-af98-26b9c006eac2)
+
+
 ![2005-2012   2013-2020 HIV Incidence Rates, Enrollment Rates, and Income Levels](https://github.com/user-attachments/assets/91b2fa15-c2e7-41ac-ba86-b941d3b22427)
 ![Life Expectancy and Mortality Rates by Income](https://github.com/user-attachments/assets/748235d0-4a51-40c6-b5c2-8a420ee804df)
 ![2005-2013   2014-2020 HIV Incidence Rates, Health Expenditure %, and Income Levels](https://github.com/user-attachments/assets/c06fd068-515e-4f92-a6ed-2e8748439b8a)
