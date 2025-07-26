@@ -130,14 +130,17 @@ AND year BETWEEN 2012 and 2022
 GROUP BY country_code, year, indicator_name 
 
 10th query is for calculating the suicide mortality rate for all genders between 1992 and 2002
-Select the 
-SELECT country_name, year, 
-indicator_name AS measuring_factor,
-lower_bound AS lower_range,
-estimate AS mid,
-upper_bound AS upper_range,
-ROUND((lower_bound + estimate + upper_bound) / 3,2) AS avg_value
- FROM `social-factors-and-healthcare.world_health_organization_data.World Health Data`
+Select the all gender suicide mortality rates for 12 select countries between 1992 and 2002.
+Calculate the average suicide mortality rate grouped by country info and year.
+SELECT country_name, 
+year,
+indicator_name,
+ROUND(AVG(value), 2) AS avg_suicide_value_per_100k
+ FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
+WHERE country_code IN (
+'AFG','MLI','COG','GHA','NGA','DOM',
+'IND','COL','ZAF','CAN','FRA','USA'
+) 
 WHERE country_code IN (
 'AFG','MLI','COG','GHA','NGA','DOM',
 'IND','COL','ZAF','CAN','FRA','USA'
