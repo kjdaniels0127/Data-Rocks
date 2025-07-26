@@ -59,7 +59,6 @@ AND country_code IN (
 )
 
 Select HIV Incidence rates for 50+ year olds for 12 select countries (excluding France and Canada) between 2013 and 2020.
-5th query is for calculating the incidence HIV rate for people above 50 from 2013-2020
 SELECT indicator_name AS measuring_factor,
  ROUND(value, 2) AS measuring_value,
  country_code, 
