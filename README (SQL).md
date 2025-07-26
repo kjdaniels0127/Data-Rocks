@@ -30,3 +30,4 @@ Here are all of my **SQL Queries** utilized in my three data analytics projects
 
 
 ## Fit Bit Trends 03.2016-05.2016: Insight into consumer trends 
+Coming soon.
