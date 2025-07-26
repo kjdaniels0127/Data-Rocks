@@ -1,6 +1,7 @@
 
 
-This query selects the infant mortality indicator, country info and year along with calculating the average value of infant mortality rate for the 12 countries in this project. The average value is grouped by country info and year. 
+Selects the infant mortality rate indicator for 12 select countries from years 1992-2022.
+Calcualates the average infant mortality rate grouped by country info and years.
 SELECT indicator_name,
   country_code,
   country_name, 
@@ -14,8 +15,9 @@ GROUP BY
   country_name, country_code, year, indicator_name
 
 
-This query selects the neonatal mortality indicator, country info and year along with calculating the average value of infant mortality rate for the 12 countries in this project. The average value is grouped by country info and year. 
-SQL Query 2: Average Neontal Mortality Rate 1992 to 2022
+Selects the neonatal mortality indicator for 12 select countries from years 1992-2022.
+Calculates the average neonatal mortality rate grouped by country info and year. 
+
 SELECT indicator_name,
   country_code,
   country_name, 
@@ -28,8 +30,9 @@ SELECT indicator_name,
 GROUP BY 
   country_name, country_code, year, indicator_name
 
-This query selects the mortality for under 5 years old indicator, country info and year along with calculating the average value of infant mortality rate for the 12 countries in this project. The average value is grouped by country info and year. 
-SQL Query 3: Average Mortality for less than 5 year olds Rate 1992 to 2022
+Selects the mortality for under 5 years old indicator for 12 select countries from years 1992-2022.
+Calculates the average value for mortality rate for under 5 years old grouped by country info and year. 
+
 SELECT indicator_name,
   country_code,
   country_name, 
@@ -37,13 +40,17 @@ SELECT indicator_name,
   ROUND(AVG(value),2) AS average_mortality_value
  FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
  WHERE indicator_name LIKE '%Mortality rate, under-5%'
-  AND country_code IN ('CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF')
+  AND country_code IN (
+'CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 
+'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF'
+)
   AND year BETWEEN 1992 AND 2022
 GROUP BY 
   country_name, country_code, year, indicator_name
 
 
-This query selects the adult mortality indicator, country info and year along with calculating the average value of infant mortality rate for the 12 countries in this project. The average value is grouped by country info and year. 
+Selects the adult mortality rate for 12 select countries from 1992-2022.
+Calculates the average value of adult mortality rate grouped by country info and year.
 SQL Query 4: Average High Mortality Rates 1992 to 2022
 SELECT indicator_name,
   country_code,
@@ -52,7 +59,10 @@ SELECT indicator_name,
   ROUND(AVG(value),2) AS average_mortality_value
  FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
  WHERE indicator_name LIKE '%Mortality rate, adult%'
-  AND country_code IN ('CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF')
+  AND country_code IN (
+'CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 
+'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF'
+)
   AND year BETWEEN 1992 AND 2022
 GROUP BY 
   country_name, country_code, year, indicator_name
