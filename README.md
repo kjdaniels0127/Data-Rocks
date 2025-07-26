@@ -25,7 +25,9 @@ I believe data can solve virtually any problem when analyzed correctly. To guide
    ## 🔧 Tools & Skills Demonstrated:
 - **Excel**: Pivot Tables, XLOOKUP, IF statements, Charts, Macros and Complex Formulas
 - **SQL**: Basic to Intermeidate Queries Select, From, Where, Concat, column aliasing. SQL Calculations using aggregate functions Sum,Average,Max, and Min of a column.
+- Subqueries, CTEs and creating new tables 
 - **Tableau/Power BI**: Creating data visualizations like heatmaps, bar graphs, scatterplots, or data summary tables.
+- **Chat GPT**: For prepping SQL queries and assisting in coming up with new queries to use. 
 
 - Check out my branches of excel and SQL to get samples of my excel workbooks and SQL queries I have used for data analysis.
 - 
@@ -37,6 +39,9 @@ I believe data can solve virtually any problem when analyzed correctly. To guide
 **My data analytics projects or case studies are attached as zip files!**
 I have completed the following projects: **Geographic Data Analysis of Asia, America, and Europe** 
 **The Cost of Inequality: Connection between socioeconomic status and health outcomes for 12 countries**
+
+## Here are links to my SQL queries utilized in these projects. 
+[SQL Queries] (https://github.com/kjdaniels0127/Data-Rocks/blob/sql/README%20(SQL).md) 
 
 ## Here's my visualizations for the Geographic Data Analysis of Asia, America, and Europe project 
 ![Asia, Europe, and Americas Geographic Visualization](https://github.com/user-attachments/assets/0080f884-cd1d-4950-b0de-eec052f8c551)
