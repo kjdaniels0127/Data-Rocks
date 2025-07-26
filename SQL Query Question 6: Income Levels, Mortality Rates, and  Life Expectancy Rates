@@ -1,4 +1,7 @@
-1st query is for life expectancy for 1992 to 2022 for 12 select countries
+
+Select life expectancy for 12 select countries from 1992 to 2022.
+Calculate estimate average life expectancy based on lower bound, estimate, and upper bound.
+The case function is used to include a 60 column to assist in calculating the total life expectancy for life expectancy years after 60.
 SELECT iso3 AS country_code, country_name, year, 
 indicator_name AS measuring_factor,
 lower_bound AS lower_range,
@@ -11,11 +14,15 @@ CASE
   ELSE 0 
 END AS calculated_avg_value
 FROM `social-factors-and-healthcare.world_health_organization_data.World Health Data` 
-WHERE iso3 IN ('AFG','CAN','FRA', 'NGA', 'USA','FRA','MLI','COL', 'COG','DOM','GHA','IND','ZAF')
+WHERE iso3 IN (
+'AFG','CAN','FRA', 'NGA', 'USA','FRA',
+'MLI','COL', 'COG','DOM','GHA','IND','ZAF'
+)
 AND year BETWEEN 1992 and 2022
 AND indicator_name LIKE '%life expectancy%'
 
-2nd query is for mortality rate, neonatal for 1992 and 2022. 
+Select mortality rates for neonatals for 12 select countries in between 1992 and 2022.
+Calculate the average mortality rates for neonatal grouped by country info and year. 
 SELECT indicator_name,
   country_code,
   country_name, 
@@ -23,12 +30,16 @@ SELECT indicator_name,
   ROUND(AVG(value),2) AS average_mortality_value
  FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
  WHERE indicator_name LIKE '%Mortality rate, neonatal%'
-  AND country_code IN ('CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF')
+  AND country_code IN (
+'CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA',
+'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF'
+)
   AND year BETWEEN 1992 AND 2022
 GROUP BY 
   country_name, country_code, year, indicator_name
 
-3rd query is for infant mortality rate for 1992 and 2022.
+Select mortality rates for infant for 12 select countries in between 1992 and 2022.
+Calculate the average mortality rates for infants grouped by country info and year.
 SELECT indicator_name,
   country_code,
   country_name, 
@@ -36,12 +47,16 @@ SELECT indicator_name,
   ROUND(AVG(value),2) AS average_mortality_value
  FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
  WHERE indicator_name LIKE '%Mortality rate, infant%'
-  AND country_code IN ('CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF')
+  AND country_code IN (
+'CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 
+'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF'
+)
   AND year BETWEEN 1992 AND 2022
 GROUP BY 
   country_name, country_code, year, indicator_name 
 
-4th query Average Mortality for less than 5 year olds Rate 1992 to 2022
+Select mortality rates for less than 5 year olds for 12 select countries in between 1992 and 2022.
+Calculate the average mortality rates for less than 5 year olds grouped by country info and year.
 SELECT indicator_name,
   country_code,
   country_name, 
@@ -49,12 +64,16 @@ SELECT indicator_name,
   ROUND(AVG(value),2) AS average_mortality_value
  FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
  WHERE indicator_name LIKE '%Mortality rate, under-5%'
-  AND country_code IN ('CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF')
+  AND country_code IN (
+'CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 
+'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF'
+)
   AND year BETWEEN 1992 AND 2022
 GROUP BY 
   country_name, country_code, year, indicator_name
 
-5th query Average High Mortality Rates 1992 to 2022
+Select mortality rates for adults for 12 select countries in between 1992 and 2022.
+Calculate the average mortality rates for adults grouped by country info and year.
 SELECT indicator_name,
   country_code,
   country_name, 
@@ -62,7 +81,10 @@ SELECT indicator_name,
   ROUND(AVG(value),2) AS average_mortality_value
  FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
  WHERE indicator_name LIKE '%Mortality rate, adult%'
-  AND country_code IN ('CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF')
+  AND country_code IN (
+'CAN','NGA', 'FRA', 'AFG', 'MLI', 'USA', 
+'COL', 'COG', 'DOM', 'GHA', 'IND', 'ZAF'
+)
   AND year BETWEEN 1992 AND 2022
 GROUP BY 
   country_name, country_code, year, indicator_name
