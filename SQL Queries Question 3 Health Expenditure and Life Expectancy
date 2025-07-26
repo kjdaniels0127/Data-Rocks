@@ -1,28 +1,38 @@
 
 SQL Query 1: Average Health Expenditure for 12 countries between 1992 and 2022
-This query selects country code, health expenditure indicator, year, and the average health expenditure rate for 12 countries grouped by country code and year. 
+Selects the current health expenditure rate for select 12 countries between 1992 and 2022.
+Calculates the average health expenditure rate grouped by country info and year. 
 SELECT country_code, year, indicator_name, 
 ROUND(AVG(value), 2) AS average_value,
 FROM `bigquery-public-data.world_bank_wdi.indicators_data` 
-WHERE country_code IN ('USA','CAN','ZAF','NGA','FRA','AFG','COL','COG','GHA','IND','MLI','DOM')
+WHERE country_code IN (
+'USA','CAN','ZAF','NGA','FRA',
+'AFG','COL','COG','GHA','IND','MLI','DOM'
+)
 AND indicator_name = 'Current health expenditure (% of GDP)' 
 AND year BETWEEN 1992 and 2022
 GROUP BY country_code, year, indicator_name
 
-SQL Query 2: Life Expetancy for 12 countries between 1992 and 2022
-This query selects country info, year, lower range, estimate, and upper bound for the 12 countires in this dataset between years of 1992 and 2022. The average value is calculated as the lower range, estimate, and upper range of life expectancy value. There are two life expectancy categories life expectancy at birth and life expectancy at 60. The life expectancy at 60 only includes the years after 60 so I did a CASE function to include 60 to the life expectancy at 60 category and zero to the life expectancy at birth as the calculated_avg_value column. 
+
+Selects the life expectancy for select 12 countries between 1992 and 2022. 
+Calculates approximate average life expectancy based on lower_bound, estimate, and upper_bound numbers.
+A Case function is used to include 60 value for the life expectancy at age 60 to be able to calculate total life expectancy after 60 years old. 
 SELECT iso3 AS country_code, country_name, year, 
 indicator_name AS measuring_factor,
 lower_bound AS lower_range,
 estimate AS mid_range,
 upper_bound AS upper_range,
-ROUND((lower_bound + estimate + upper_bound) / 3,2) AS avg_value,
+ROUND((lower_bound + estimate + upper_bound) / 3,2) 
+AS avg_value,
 CASE 
   WHEN indicator_name = 'Healthy life expectancy (HALE) at age 60 (years)'
   THEN 60 
   ELSE 0 
 END AS calculated_avg_value
 FROM `social-factors-and-healthcare.world_health_organization_data.World Health Data` 
-WHERE iso3 IN ('AFG','CAN','FRA', 'NGA', 'USA','FRA','MLI','COL', 'COG','DOM','GHA','IND','ZAF')
+WHERE iso3 IN (
+'AFG','CAN','FRA', 'NGA', 'USA',
+'FRA','MLI','COL', 'COG','DOM','GHA','IND','ZAF'
+)
 AND year BETWEEN 1992 and 2022
 AND indicator_name LIKE '%life expectancy%'
