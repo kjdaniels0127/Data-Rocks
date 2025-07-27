@@ -1,4 +1,6 @@
-SQL Query 1: Get average raised blood pressure rates for select 12 countries for years 1992-2022.
+
+Select raised BP rates from 12 select countries from 1992 to 2022
+Calculate an estimate average raised BP rate based on lower_bound, estimate, and upper_bound.
 SELECT iso3 AS country_code,
 country_name, 
 indicator_name AS measuring_factor,
@@ -12,6 +14,8 @@ WHERE indicator_name LIKE '%blood pressure%'
 AND year BETWEEN 1992 and 2002
 AND iso3 IN ('AFG','CAN','NGA','FRA','MLI','USA','COL','COG','DOM','GHA','IND','ZAF')
 
+Select obesity rates from 12 select countries from 1992 to 2022.
+Calculate an estimate average obesity rates based on lower_bound, estimate, and upper_bound rates.
 SQL Query 2: Get average obesity rates for select 12 countries for years 1992-2022.
 SELECT country_name, year, 
 indicator_name AS measuring_factor,
