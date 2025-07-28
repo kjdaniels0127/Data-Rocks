@@ -24,8 +24,7 @@ I believe data can solve virtually any problem when analyzed correctly. To guide
 
    ## 🔧 Tools & Skills Demonstrated:
 - **Excel**: Pivot Tables, XLOOKUP, IF statements, Charts, Macros and Complex Formulas
-- **SQL**: Basic to Intermeidate Queries Select, From, Where, Concat, column aliasing. SQL Calculations using aggregate functions Sum,Average,Max, and Min of a column.
-- Subqueries, CTEs and creating new tables 
+- **SQL**: Basic to Intermeidate Queries Select, From, Where, Concat, column aliasing. SQL Calculations using aggregate functions, Subqueries, CTEs and creating new tables 
 - **Tableau/Power BI**: Creating data visualizations like heatmaps, bar graphs, scatterplots, or data summary tables.
 - **Chat GPT**: For prepping SQL queries and assisting in coming up with new queries to use. 
 
