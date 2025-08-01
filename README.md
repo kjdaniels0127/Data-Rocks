@@ -66,37 +66,44 @@ I have completed the following projects: **Geographic Data Analysis of Asia, Ame
 
 ![Mortality Rate by Income](https://github.com/user-attachments/assets/daf48b95-834a-421e-bc13-a5f2fb326615)
 
-1. Strong correlation mortality rates and income levels
-2. I was suprised to find that the upper middle income country South Africa 121.1 had higher mortality rate than lower middle income countries like Ghana 107.6 and about the same mortality rate Congo 122. 
+1. Strong negative correlation mortality rates and income levels
+2. South Africa was the outlier as an upper middle income nation with a relatively high mortalilty rate at 121.1. Which is higher than lower middle income nations Ghana and India and a bit lower than Congo. 
 ![Life Expectancy and Health Expenditure % of GDP ](https://github.com/user-attachments/assets/f97248cb-f1e7-4b70-94a2-11365181032a)
 
 1. Slight to moderate positive correlation health expenditure and life expectancy
-2. South Africa spent over 10% on health expenditure and low life expectancy of 61.44
-3. Afghanistan spent over 8% on health expenditure and low life expectancy of 60.25
+2. Outlier: South Africa spent over 10% on health expenditure and low life expectancy of 61.44
+3. Outlier: Afghanistan spent over 8% on health expenditure and low life expectancy of 60.25
 ![1992-2002 and 2012-2022 Unemployment Rate, BP Rate and Suicide Mortality Rate](https://github.com/user-attachments/assets/be112836-b7b2-460d-af98-26b9c006eac2)
 
-1. No correlation unemployment rates and raised BP rates
-2. Slight positive correaltion unemployment rates and suicide mortality rates
-
+1. Slight positive correlation between unemployment rates and raised BP rates
+2. Slight positive correaltion between unemployment rates and suicide mortality rates
+3. UE rates slightly decreased in 2012-2022 from 1992-2002 for most countries
+4. Canada and France saw notable decreases in raised BP rates in 2012-2022 from 1992-2002 at 13.13% and 8%, respectively.
+5. No significant change in suicide mortaity rates in 2012-2022 from 1992-2002 for most countries.
 ![2005-2012   2013-2020 HIV Incidence Rates, Enrollment Rates, and Income Levels](https://github.com/user-attachments/assets/91b2fa15-c2e7-41ac-ba86-b941d3b22427)
 
 1. No correlation HIV Incidence rates and college enrollment rates or income levels
-2. Outlier: South Africa
+2. Outlier: South Africa significantly higher HIV Incidence rates at 9.92% in 2005-2012 and 6.41% in 2013-2020.
 3. Positive correlation income levels and college enrollment rates
+4. Slight negative correlation between HIV Incidence rates and income status in both 2005-2012 and 2013-2020
 ![Life Expectancy and Mortality Rates by Income](https://github.com/user-attachments/assets/748235d0-4a51-40c6-b5c2-8a420ee804df)
 
-1. Slight positive correlation between life expectancu and income levels
-2. Outlier: South Africa
+1. Moderate positive correlation between life expectancu and income levels
+2. Outlier: South Africa there's life expectancy at 61.44 in the bottom three as an upper-middle income nation
+3. I strongly suspect that South Africa having the highest HIV rates in the world per National Library of Medecine plays a significant role in the life expectancy.
+4. No suprise here as income levels of a nation do a play a significant role in having higher quality healthcare services that can prevent premature deaths and extend the lifespan of individuals.
    
 ![2005-2013   2014-2020 HIV Incidence Rates, Health Expenditure %, and Income Levels](https://github.com/user-attachments/assets/c06fd068-515e-4f92-a6ed-2e8748439b8a)
 
 1. Negative correlation health expenditure and HIV Incidence rates
-2. Outlier: South Africa
+2. Outlier: South Africa. Pretty consistent theme with the HIV Incidence correlations for sure. 
 ![1992-2022 Obesity Prevelance Rates and Raised BP Rates ](https://github.com/user-attachments/assets/3c3e60f3-1fd2-4509-8f8b-033d830cd6d0)
 
-1. Slight negative correlation income levels and raised blood pressureP rates
-2. Positive correlation income levels and obesity rates
-3. Outlier: Dominican Republic and South Africa
+1. Slight negative correlation income levels and raised blood pressure rates
+2. Outlier: Dominican Republic and South Africa
+3. Dominican Republic had highest raised BP rate at 38.38% and fourth highest obesity rate at 18.71%
+4. South Africa had the third highest raised BP rate at 34.18% and second highest obesity rate at 23.63%.
+5. Positive correlation income levels and obesity rates
 
 
 
