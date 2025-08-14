@@ -1,0 +1,12 @@
+This is to verify if the heart rate in SQL matches the heart rate in the Excel file to ensure data accruacy. 
+Query for calculating the average heart rate in the 03.12.16 to 04.11.16 heart rate dataset. 
+SELECT id, 
+ROUND(AVG(heart_rate), 2) AS average_heart_rate
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Heart_Rate_03_12_16_to_04_11_16`  
+GROUP BY id 
+
+Query for calculating the average heart rate in the 04.12.16 to 05.11.16 heart rate dataset.
+SELECT id, 
+ROUND(AVG(heart_rate_minute), 2) AS average_heart_rate
+ FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Heart_Rate_04_12_16_to_05_11_16`
+GROUP BY id 
