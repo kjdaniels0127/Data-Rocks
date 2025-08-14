@@ -1,0 +1,23 @@
+Query to verify if the hourly steps sum total by ID in SQL matches the hourly steps sum total by ID in Excel to ensure data accuracy.
+Calculate the sum total of hourly steps by ID for April 2016-May 2016. 
+SELECT id, 
+SUM(StepTotal) AS step_total 
+  FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Hourly_Steps 04_12_16 to 05_11_16` 
+GROUP BY id 
+
+Calculate the sum total of hourly steps by ID for March 2016-April 2016
+SELECT ID,
+SUM(StepTotal) AS step_total
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Hourly_Steps 03_12_16 to 04_11_16` 
+GROUP BY ID; 
+
+Query to verify if the hourly calories sum total by ID in SQL matches the hourly calories sum total by ID in Excel to ensure data accuracy.
+Calculate the sum total of calories by ID for April 2016-May 2016
+SELECT id, SUM(calories) AS calorie_total
+ FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Hourly_Calories 04_12_16 to 05_11_16` 
+GROUP BY id
+
+Calculate the sum total of calories by ID for March 2016-April 2016
+SELECT DISTINCT id, Sum (Calories) AS calories_total
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Hourly_Calories_03_12_16_to_04_11_16` 
+GROUP BY id 
