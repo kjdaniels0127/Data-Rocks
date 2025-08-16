@@ -1,0 +1,14 @@
+
+This query is to get the total intensity and average intensity of fitbit user IDs in SQL to verify the intensity and average intensity in the hourly intensity 03.12.16 to 04.11.16 Excel file
+SELECT DISTINCT id, 
+SUM(TotalIntensity) AS sum_total_intensity_by_id,
+AVG(AverageIntensity) AS avg_intensity_by_id
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Hourly_Intensities 03_12_16_to_04_11_16` 
+GROUP BY id
+
+This query is to get the total intensity and average intensity of fitbit user IDs in SQL to verify the intensity and average intensity in the hourly intensity 04.12.16 to 05.11.16 Excel file
+SELECT id,
+SUM(TotalIntensity) AS total_intensity,
+AVG(AverageIntensity) AS average_intensity,
+ FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Hourly_Intensities 04_12_16 to 05_11_16` 
+GROUP BY id 
