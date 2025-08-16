@@ -1,0 +1,9 @@
+
+Calculating the sum and average of time in bed and minutes asleep per fitbit ID for April 2016-May 2016 to check against original Excel file to ensure SQL data matches Excel data.
+SELECT id,
+SUM(TotalMinutesAsleep) AS total_sleeping_time,
+SUM(TotalTimeInBed) AS total_idle_time,
+AVG(TotalMinutesAsleep) AS average_sleeping_time,
+AVG(TotalTimeInBed) AS average_idle_time
+ FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Sleep_Day 04_12_16 to 05_11_16` 
+GROUP BY id
