@@ -1,0 +1,51 @@
+## Creating a table for statistical summary for April 2016-May 2016. 
+
+This is the statistical summary for step totals by fitbit ID. The statistical summary includes the minimum, quartile 1, average, quartile 3, and maximum for fitbit user IDs. 
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.steps_stat_summary_04_16_to_05_16` AS 
+
+## Step 1 Calculate quartile percentage
+WITH steps_with_quartiles AS (
+  SELECT 
+    ID,
+    StepTotal,
+    PERCENTILE_CONT(StepTotal, 0.25) OVER (PARTITION BY ID) AS quartile_1_step_total,
+    PERCENTILE_CONT(StepTotal, 0.75) OVER (PARTITION BY ID) AS quartile_3_step_total
+  FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Hourly_Steps 03_12_16 to 04_11_16`
+)
+
+-- Step 2: Group by ID to get aggregates
+SELECT 
+  ID,
+  MIN(StepTotal) AS min_step_total,
+  ROUND(AVG(StepTotal), 2) AS avg_step_total,
+  MAX(StepTotal) AS max_step_total,
+  ANY_VALUE(quartile_1_step_total) AS quartile_1_step_total,
+  ANY_VALUE(quartile_3_step_total) AS quartile_3_step_total
+FROM steps_with_quartiles
+GROUP BY ID
+
+## Create a statistical summary for March 2016-April 2016.
+
+-- Step 1: Add quartiles per user
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.steps_stat_summary_03_16_to_04_16` AS
+
+WITH steps_with_quartiles AS (
+  SELECT 
+    ID,
+    StepTotal,
+      PERCENTILE_CONT(StepTotal, 0.25) OVER (PARTITION BY ID) AS quartile_1_step_total,
+      PERCENTILE_CONT(StepTotal, 0.75) OVER (PARTITION BY ID) AS quartile_3_step_total
+  FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Hourly_Steps 03_12_16 to 04_11_16`
+)
+
+-- Step 2: Group by ID to get aggregates
+SELECT 
+  ID,
+  MIN(StepTotal) AS min_step_total,
+  ROUND(AVG(StepTotal), 2) AS avg_step_total,
+  MAX(StepTotal) AS max_step_total,
+  ANY_VALUE(quartile_1_step_total) AS quartile_1_step_total,
+  ANY_VALUE(quartile_3_step_total) AS quartile_3_step_total
+FROM steps_with_quartiles
+GROUP BY ID
