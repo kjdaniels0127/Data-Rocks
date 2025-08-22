@@ -1,0 +1,45 @@
+## Hourly Intensities statistical summary March 2016-April 2016
+
+Statistical summary includes minimum, quartile 1, average, quartile 3, and maximum of the 
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.hourly_intensities_03_16_to_04_16_stat_summary` AS
+
+WITH intensities_with_quartiles AS (
+  SELECT 
+  Id,
+  TotalIntensity,
+    PERCENTILE_CONT(TotalIntensity, 0.25) OVER (PARTITION BY ID) AS quartile_1_intensities,
+    PERCENTILE_CONT(TotalIntensity, 0.75) OVER (PARTITION BY ID) AS quartile_3_intensities,
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Hourly_Intensities 03_12_16_to_04_11_16` 
+)
+
+SELECT
+  Id,
+  MIN(TotalIntensity) AS min_intensity,
+  ROUND(AVG(TotalIntensity), 2) AS avg_intensity,
+  MAX(TotalIntensity) AS max_intensity,
+  ANY_VALUE(quartile_1_intensities) AS quartile_1_intensities,
+  ANY_VALUE(quartile_3_intensities) AS quartile_3_intensities
+FROM intensities_with_quartiles
+GROUP BY ID;
+
+## Statistical summary for calories per hour for 04.12.2016 to 05.11.2016
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.calories_stat_summary_04_16_to_05_16` AS 
+WITH calories_with_quartiles AS(
+  SELECT
+  ID,
+  Calories,
+  PERCENTILE_CONT(Calories,0.25) OVER (PARTITION BY ID) AS quartile_1_calories,
+  PERCENTILE_CONT(Calories, 0.75) OVER (PARTITION BY ID) AS quartile_3_calories
+  FROM wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.DailyCalories_04_12_16_to_05_11_16
+)
+SELECT 
+  ID,
+  MIN(calories) AS min_calories_total,
+  ROUND(AVG(calories),2) AS avg_calories_total,
+  MAX(calories) AS max_calories_total,
+  ANY_VALUE(quartile_1_calories) AS quartile_1_calories,
+  ANY_VALUE(quartile_3_calories) AS quartile_3_calories
+FROM calories_with_quartiles
+GROUP BY ID;
