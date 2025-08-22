@@ -1,0 +1,72 @@
+## Creating statistical summary table for 03.2016-04.2016 METs by minutes 
+
+Statistical summary tables with minimum, quartile 1, average, quartile 3, and maximum METs by minutes for fitbit ID users. 
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METSbyminutes_03_16_to_04_16_stat_summary` AS
+
+WITH METsbyminutes_03_16_to_04_16_stats AS(
+  SELECT ID,
+  METS
+  FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_minutes 03_12_16 to_03_31_16`
+  UNION ALL
+  SELECT ID,
+  METS
+  FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_minutes 04_01_16 to 04_12_16`
+
+),
+
+METS_quartiles AS(
+
+SELECT
+  ID,
+  METS,
+  (PERCENTILE_CONT(METS, 0.25) OVER (PARTITION BY ID)) AS quartile_1_METS,
+  (PERCENTILE_CONT(METS, 0.75) OVER (PARTITION BY ID)) AS quartile_3_METS
+  FROM METsbyminutes_03_16_to_04_16_stats 
+)
+
+SELECT
+  ID,
+  MIN(METS) AS min_METS_value_by_ID,
+  ROUND(AVG(METS), 2) AS avg_METS_value_by_ID,
+  MAX(METS) AS max_METS_value_by_ID,
+  ANY_VALUE(quartile_1_METS) AS quartile_1_METS,
+  ANY_VALUE(quartile_3_METS) AS quartile_3_METS
+FROM METS_quartiles
+GROUP BY ID;
+
+## Creating statistical summary by 04.2016-05.2016 METs by minutes
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.METs_by_minutes_04_16_to_05_16_stat_summary` AS
+
+WITH METsbyminutes_04_16_to_05_16_stats AS(
+  SELECT ID,
+  METS
+  FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.METS_by_Minutes_04_12_16 to_04_30_16`
+  UNION ALL
+  SELECT ID,
+  METS
+  FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Minutes_by_METS 05_01_16 to 05_12_16`
+
+),
+
+METS_quartiles AS(
+
+SELECT
+  ID,
+  METS,
+  (PERCENTILE_CONT(METS, 0.25) OVER (PARTITION BY ID)) AS quartile_1_METS,
+  (PERCENTILE_CONT(METS, 0.75) OVER (PARTITION BY ID)) AS quartile_3_METS
+  FROM METsbyminutes_04_16_to_05_16_stats 
+)
+
+SELECT
+  ID,
+  MIN(METS) AS min_METS_value_by_ID,
+  ROUND(AVG(METS), 2) AS avg_METS_value_by_ID,
+  MAX(METS) AS max_METS_value_by_ID,
+  ANY_VALUE(quartile_1_METS) AS quartile_1_METS,
+  ANY_VALUE(quartile_3_METS) AS quartile_3_METS
+FROM METS_quartiles
+GROUP BY ID;
+
