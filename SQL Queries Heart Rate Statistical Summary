@@ -1,0 +1,26 @@
+#03.2016-04.2016 Heart Rate Statistical Summary Table
+
+Statistical summaries that measure the minimum, quartile 1, average, quartile 3, and maximum of heart rate for fitbit user IDs.
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.heart_rate_stat_summary_03_16_to_04_16` AS 
+
+WITH heartrate_stat_03_16_to_04_16 AS(
+SELECT 
+  ID,
+  value,
+  PERCENTILE_CONT(value, 0.25) OVER (PARTITION BY ID) AS quartile_1_heart_rate,
+  PERCENTILE_CONT(value, 0.75) OVER (PARTITION BY ID) AS quartile_3_heart_rate,
+  FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Heart_Rate 03_12_16 to 04_11_16` 
+) 
+
+SELECT
+  ID,
+  MIN(value) AS min_heart_rate_by_id,
+  ROUND(AVG(value), 2) AS avg_heart_rate_by_id,
+  MAX(value) AS max_heart_rate_by_id,
+  ANY_VALUE(quartile_1_heart_rate) AS quartile_1_heart_rate_by_id,
+  ANY_VALUE(quartile_3_heart_rate) AS quartile_3_heart_rate_by_id
+FROM heartrate_stat_03_16_to_04_16
+GROUP BY ID;
+
+
