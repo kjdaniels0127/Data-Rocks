@@ -1,0 +1,65 @@
+Utilized the SQL sleep minutes table mentioned in the sleep and calories table. Specifically, the table is named total_sleep_minutes_03_16_to_04_16 tables.
+
+Step 1: ## Create late 03.2016 Intensities table with average intensity per day
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.minute_intensity_late_03_16` AS 
+SELECT ID,
+SUM(Intensity) AS total_intensity,
+COUNT(DISTINCT CASE WHEN Intensity > 0 THEN _activitydate END) AS active_days,
+IFNULL(
+ROUND(SUM(Intensity) / NULLIF (COUNT(DISTINCT CASE WHEN Intensity > 0 THEN _activitydate END), 0), 2),0
+)
+AS avg_intensity_per_day
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Minutes_Intensities_03_12_16 to_03_31_16` 
+GROUP BY ID; 
+
+
+Step 2: ## Create early 04.2016 Intensities table with average intensity per day
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.minute_intensity_early_04_16` AS 
+SELECT ID,
+SUM(Intensity) AS total_intensity,
+COUNT(DISTINCT CASE WHEN Intensity > 0 THEN _activityday END) AS active_days,
+IFNULL(
+ROUND(SUM(Intensity) / NULLIF (COUNT(DISTINCT CASE WHEN Intensity > 0 THEN _activityday END), 0), 2),0
+)
+AS avg_intensity_per_day
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Minutes 04_01_16 to 04_11_16` 
+GROUP BY ID; 
+
+Step 3: ## Create minutes intensities table with ID, active days, and average intensity per day for late 03.2016-early 04.2016
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.minutes_intensities_03_16_to_04_16` AS 
+SELECT ID,
+  SUM(active_days) AS total_active_days,
+  SUM(total_intensity) AS total_intensity_sum,
+IFNULL(
+  ROUND(SUM(total_intensity) * 1.0/NULLIF(SUM(active_days), 0),2), 
+  0
+) 
+AS weighted_avg_intensity_per_day
+
+## early April 2016 data 
+ FROM (
+    SELECT ID, 
+    active_days,
+    total_intensity
+    FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.minute_intensity_early_04_16` 
+ UNION ALL 
+  
+  ## late March 2016 data
+    SELECT ID,
+    active_days,
+    total_intensity
+    FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.minute_intensity_late_03_16` 
+ )
+GROUP BY ID; 
+
+## Step 4: Join together the newly created minutes intensities 03.16 to 04.16 and sleep minutes 03.16 to 04.16 tables.
+
+SELECT intensity.ID,
+intensity.weighted_avg_intensity_per_day,
+sleep_minutes.sleep_minutes_per_day
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.minutes_intensities_03_16_to_04_16` AS intensity
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.total_sleep_minutes_03_16_to_04_16` AS sleep_minutes
+ON intensity.ID = sleep_minutes.ID
