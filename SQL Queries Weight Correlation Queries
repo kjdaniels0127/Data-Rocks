@@ -1,0 +1,63 @@
+## Joining together the aggregated calories tables and weight log info table by matching IDs for 03.2016-04.2016
+
+SELECT weight.Id,
+AVG(weight.weight_pounds_int) AS avg_weight_id,
+AVG(calories.avg_calories_by_id) AS avg_calories_id
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Weight_Log_Info_03_12_16_to_04_11_16` AS weight
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.calories_id_day_03_16_to_04_16` AS calories
+ON weight.Id = calories.ID
+WHERE calories.avg_calories_by_id <> 0
+GROUP BY weight.Id;
+
+## Joining together the weights and aggreaged calories tables for 04.2016-05.2016 by matching IDs.
+
+SELECT weight.Id,
+AVG(weight.weight_pounds_int) AS avg_weight_id,
+AVG(calories.avg_calories_by_id) AS avg_calories_id
+FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.weightloginfo_04_12_16_to_05_11_16` AS weight
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.calories_id_by_day_04_16_to_05_16` AS calories
+ON weight.Id = calories.ID
+WHERE calories.avg_calories_by_id <> 0
+GROUP BY weight.Id;
+
+## Joining together the weights log table and aggregated METS table for 04.2016-05.2016 for matching fitbit user IDs.
+
+
+SELECT weight.Id,
+AVG(weight.weight_pounds_int) AS avg_weight_id,
+AVG(METS.mets_average_by_id) AS avg_METS_id
+ FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.weightloginfo_04_12_16_to_05_11_16` AS weight
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.METS_04_16_to_05_16` AS METS
+ON weight.Id = METS.ID
+GROUP BY weight.Id;
+
+## Joining together the weights log table and aggregated METS table for 03.2016-04.2016 for matching fitbit user IDs.
+
+SELECT weight.Id,
+AVG(weight.weight_pounds_int) AS avg_weight_id,
+AVG(METS.mets_average_by_id) AS avg_METS_id
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Weight_Log_Info_03_12_16_to_04_11_16` AS weight
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_03_16_to_04_16` AS METS
+ON weight.Id = METS.ID
+GROUP BY weight.Id;
+
+## Joining together the aggregated minutes intensities table and the weight log info for matching fitbit user IDs for 03.2016-04.2016
+
+SELECT weight.ID,
+AVG(weight_pounds_int) AS average_id_weight,
+AVG(intensity.weighted_avg_intensity_per_day) AS intensity_id
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Weight_Log_Info_03_12_16_to_04_11_16` AS weight
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.minutes_intensities_03_16_to_04_16` AS intensity
+ON weight.Id = intensity.ID
+WHERE intensity.weighted_avg_intensity_per_day  <> 0 
+GROUP BY weight.Id;
+
+## Joining together the aggregated minutes intensities table and the weight log info for matching fitbit user IDs for 04.2016-05.2016
+
+SELECT weight.ID,
+AVG(weight_pounds_int) AS average_id_weight,
+AVG(intensity.weighted_avg_intensity_per_day) AS intensity_id
+ FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.weightloginfo_04_12_16_to_05_11_16` AS weight
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.minute_intensity_04_16_to_05_16` AS intensity
+ON weight.Id = intensity.ID
+GROUP BY weight.Id;
