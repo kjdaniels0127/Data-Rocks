@@ -24,3 +24,25 @@ FROM heartrate_stat_03_16_to_04_16
 GROUP BY ID;
 
 
+#04.2016-05.2016 Heart Rate Statistical Summary Table
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.heart_rate_04_16_to_05_16_stat_summary` AS 
+
+WITH heartrate_stat_04_16_to_05_16 AS(
+SELECT 
+  ID,
+  heart_rate_minute,
+  PERCENTILE_CONT(heart_rate_minute, 0.25) OVER (PARTITION BY ID) AS quartile_1_heart_rate,
+  PERCENTILE_CONT(heart_rate_minute, 0.75) OVER (PARTITION BY ID) AS quartile_3_heart_rate,
+  FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Heart_Rate_04_12_16_to_05_11_16`
+) 
+
+SELECT
+  ID,
+  MIN(heartrate_stat_04_16_to_05_16.heart_rate_minute) AS min_heart_rate_by_id,
+  ROUND(AVG(heartrate_stat_04_16_to_05_16.heart_rate_minute), 2) AS avg_heart_rate_by_id,
+  MAX(heartrate_stat_04_16_to_05_16.heart_rate_minute) AS max_heart_rate_by_id,
+  ANY_VALUE(quartile_1_heart_rate) AS quartile_1_heart_rate_by_id,
+  ANY_VALUE(quartile_3_heart_rate) AS quartile_3_heart_rate_by_id
+FROM heartrate_stat_04_16_to_05_16
+GROUP BY ID;
