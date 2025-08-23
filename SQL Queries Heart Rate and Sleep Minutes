@@ -1,0 +1,45 @@
+Utilized the created total sleep minutes tables in previous queries. Specifically the names of these tables are total_sleep_minutes_03_16_to_04_16 and total_sleep_minutes_04_16_to_05_16.
+
+
+## Create heart rate table with average aggregations by activity day for IDs for 03.12.16 to 04.11.16
+
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.heart_rate_03_16_to_04_16` AS 
+SELECT 
+ID,
+date_key AS activity_day,
+ROUND(AVG(heart_rate), 2) AS heart_rate_by_day
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Heart_Rate_03_12_16_to_04_11_16` 
+GROUP BY ID, activity_day;
+
+## Joining together the sleep minutes and heart rate created tables for March 2016 to April 2016.
+
+SELECT sleep.ID,
+sleep.total_sleep_minutes AS total_sleep_minutes_by_id,
+ROUND(AVG(heart_rate.heart_rate_by_day)) AS avg_heart_rate
+  FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.total_sleep_minutes_03_16_to_04_16` AS sleep
+  INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.heart_rate_03_16_to_04_16` AS heart_rate
+ON sleep.ID = heart_rate.ID
+GROUP BY sleep.ID, sleep.total_sleep_minutes
+ORDER BY total_sleep_minutes_by_id;
+
+## Create heart rate table with average aggregations by activity day for IDs for 04.12.2016-05.11.2016
+
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.heart_rate_04_16_to_05_16` AS 
+SELECT 
+ID,
+date_key AS activity_day,
+ROUND(AVG(heart_rate_minute), 2) AS heart_rate_by_day
+FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Heart_Rate_04_12_16_to_05_11_16` 
+GROUP BY ID, activity_day;
+
+## Joining together the total sleep minutes and heart rate tables by matching fitbit user IDs.
+
+SELECT sleep.ID,
+sleep.total_sleep_minutes,
+ROUND(AVG(heart_rate.heart_rate_by_day)) AS avg_heart_rate
+FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.total_sleep_minutes_04_16_to_05_16` AS sleep
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.heart_rate_04_16_to_05_16` AS heart_rate
+ON sleep.ID = heart_rate.ID
+GROUP BY sleep.ID, sleep.total_sleep_minutes;
