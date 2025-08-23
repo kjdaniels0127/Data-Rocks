@@ -1,0 +1,47 @@
+## Statitstical summary for distance for 03.2016-04.2016
+
+This is a statistical summary for distance based on minimum,quartile 1, average, quartile 3, and maximum values for fitbit user IDs.
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.stat_summary_distance_03_16_to_04_16` AS 
+
+WITH total_distance_by_id_03_16_to_04_16 AS (
+SELECT 
+  Id,
+  TotalDistance,
+  PERCENTILE_CONT(TotalDistance, 0.25) OVER (PARTITION BY ID) AS quartile_1_total,
+  PERCENTILE_CONT(TotalDistance, 0.75) OVER (PARTITION BY ID) AS quartile_3_total
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Daily Activity 03_12_16 to 04_11_16`
+)
+
+SELECT
+  Id,
+  MIN(TotalDistance) AS min_distance_by_id,
+  ROUND(AVG(TotalDistance), 2) AS avg_distance_by_id,
+  MAX(TotalDistance) AS max_distance_by_id,
+  ROUND(ANY_VALUE(quartile_1_total), 2) AS quartile_1_total_by_id,
+  ROUND(ANY_VALUE(quartile_3_total), 2) AS quartile_3_total_by_id
+FROM total_distance_by_id_03_16_to_04_16 
+GROUP BY Id;
+
+## Statitstical summary for distance for 04.2016-05.2016
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.stat_summary_distance_04_16_to_05_16` AS 
+
+WITH total_distance_by_id_04_16_to_05_16 AS (
+SELECT 
+  Id,
+  TotalDistance,
+  PERCENTILE_CONT(TotalDistance, 0.25) OVER (PARTITION BY ID) AS quartile_1_total,
+  PERCENTILE_CONT(TotalDistance, 0.75) OVER (PARTITION BY ID) AS quartile_3_total
+FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Daily Activity 04_12_16_to_05_11_16`
+)
+
+SELECT
+  Id,
+  MIN(TotalDistance) AS min_distance_by_id,
+  ROUND(AVG(TotalDistance), 2) AS avg_distance_by_id,
+  MAX(TotalDistance) AS max_distance_by_id,
+  ROUND(ANY_VALUE(quartile_1_total), 2) AS quartile_1_total_by_id,
+  ROUND(ANY_VALUE(quartile_3_total), 2) AS quartile_3_total_by_id
+FROM total_distance_by_id_04_16_to_05_16 
+GROUP BY Id;
