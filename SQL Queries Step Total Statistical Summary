@@ -1,7 +1,5 @@
 ## Creating a table for statistical summary for April 2016-May 2016. 
 
-This is the statistical summary for step totals by fitbit ID. The statistical summary includes the minimum, quartile 1, average, quartile 3, and maximum for fitbit user IDs. 
-
 CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.steps_stat_summary_04_16_to_05_16` AS 
 
 ## Step 1 Calculate quartile percentage
@@ -11,7 +9,7 @@ WITH steps_with_quartiles AS (
     StepTotal,
     PERCENTILE_CONT(StepTotal, 0.25) OVER (PARTITION BY ID) AS quartile_1_step_total,
     PERCENTILE_CONT(StepTotal, 0.75) OVER (PARTITION BY ID) AS quartile_3_step_total
-  FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Hourly_Steps 03_12_16 to 04_11_16`
+  FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Hourly_Steps 04_12_16 to 05_11_16`
 )
 
 -- Step 2: Group by ID to get aggregates
