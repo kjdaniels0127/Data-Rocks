@@ -1,0 +1,126 @@
+I utilized quite a few queries and created SQL data tables for building a comparison table for average calories and average METs by ID for period 03.2016-04.2016. So I am going to include the step by step process for clarity sake and so whoever's reading can follow along as to my thought process. 
+
+Step 1: Creating Calories and METs tables that sum up the total calories by Fitbit ID and activity day. 
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.calories_id_by_day_late_03_2016` AS
+SELECT
+  ID,
+  _acitivtyday AS activity_day,
+  ROUND(SUM(_calories), 2) AS calories_total
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Calories_minute 03_12_16 to 03_31_16`
+GROUP BY ID, _acitivtyday;
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_id_by_day_late_03_2016`
+AS
+SELECT
+  ID,
+  _activityday AS activity_day,
+  ROUND(SUM(METS), 2) AS METS_total
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_minutes 03_12_16 to_03_31_16`
+GROUP BY ID, _activityday;
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.calories_id_by_day_early_04_2016` AS
+SELECT
+  ID,
+  _acitivtyday AS activity_day,
+  ROUND(SUM(_calories), 2) AS calories_total
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Calories_by_minute_04_01_16 to 04_12_16`
+GROUP BY ID, _acitivtyday;
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_id_by_day_early_04_2016`
+AS
+SELECT
+  ID,
+  _activityday AS activity_day,
+  ROUND(SUM(METS), 2) AS METS_total
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_minutes 04_01_16 to 04_12_16`
+GROUP BY ID, _activityday;
+
+Step 2: Joining together the calories and METs late 03.2016 and 04.2016 tables by matching fitbit user IDs between tables. Adding the calories and METs together to a get a total per ID.
+SELECT 
+calories_late_03_2016.ID,
+ROUND(SUM(calories_late_03_2016.calories_total), 2) AS calories_by_id,
+SUM(METS_late_03_2016.METS_total) AS METS_by_id
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.calories_id_by_day_late_03_2016` AS calories_late_03_2016
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_id_by_day_late_03_2016` AS METS_late_03_2016
+ON calories_late_03_2016.ID = METS_late_03_2016.ID
+GROUP BY calories_late_03_2016.ID;
+SELECT 
+calories_late_03_2016.ID,
+ROUND(SUM(calories_late_03_2016.calories_total), 2) AS calories_by_id,
+SUM(METS_late_03_2016.METS_total) AS METS_by_id
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.calories_id_by_day_late_03_2016` AS calories_late_03_2016
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_id_by_day_late_03_2016` AS METS_late_03_2016
+ON calories_late_03_2016.ID = METS_late_03_2016.ID
+GROUP BY calories_late_03_2016.ID;
+
+Step 3: Create a calories table with sum and average calories by fitbit ID that combine the previously created late 03.2016 and early 04.2016 calories tables. 
+## Average and Total Calories calculated for late 03.2016-early 04.2016
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.calories_id_day_03_16_to_04_16` AS
+SELECT ID,
+ROUND(SUM(calories_total), 2) AS calories_total_by_id,
+ROUND(AVG(calories_total), 2) AS avg_calories_by_id
+ FROM(
+  
+  ## late 03.2016 data
+  SELECT ID,
+  calories_total
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.calories_id_by_day_late_03_2016` 
+
+ UNION ALL 
+
+ ## early 04.2016 data
+  SELECT ID,
+  calories_total
+  FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.calories_id_by_day_early_04_2016` 
+
+ )
+GROUP BY ID; 
+
+Step 4: Create a METs table with sum and average calories by fitbit ID that combine the previously created late 03.2016 and early 04.2016 METs tables.
+## Total METS with average and total METS by ID for late 03.2016-early 04.2016
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_03_16_to_04_16`  AS
+SELECT ID,
+ ROUND(SUM(mets_total), 2) AS mets_total_by_id,
+ ROUND(AVG(mets_total), 2) AS mets_average_by_id
+FROM (
+
+ ## late 03.2016 METS data
+ SELECT ID,
+ mets_total
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_id_by_day_late_03_2016` 
+
+ UNION ALL
+ ##early 04.2016 METS data
+ SELECT ID,
+ mets_total
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_id_by_day_early_04_2016`
+) 
+
+GROUP BY ID; 
+
+Step 5: Utilize Inner Join to join together matching values from calories 03.16-04.16 and METs 03.16-04.16 tables then export to Excel for creating data visualization. 
+## Total METS with average and total METS by ID for late 03.2016-early 04.2016
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_03_16_to_04_16`  AS
+SELECT ID,
+ ROUND(SUM(mets_total), 2) AS mets_total_by_id,
+ ROUND(AVG(mets_total), 2) AS mets_average_by_id
+FROM (
+
+ ## late 03.2016 METS data
+ SELECT ID,
+ mets_total
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_id_by_day_late_03_2016` 
+
+ UNION ALL
+ ##early 04.2016 METS data
+ SELECT ID,
+ mets_total
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.METS_by_id_by_day_early_04_2016`
+) 
+
+GROUP BY ID; 
+
