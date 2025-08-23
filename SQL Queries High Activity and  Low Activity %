@@ -1,0 +1,45 @@
+## Table from daily activity measuring high activity time, low activity time, and total activitytime
+
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.total_minutes_04_16_to_05_16`  AS
+SELECT 
+  ID,
+  SUM(VeryActiveMinutes) AS very_active_minutes,
+  SUM(FairlyActiveMinutes) AS fairly_active_minutes,
+  SUM(LightlyActiveMinutes) AS light_active_minutes,
+  SUM(SedentaryMinutes) AS sedentary_minutes,
+  SUM(VeryActiveMinutes + FairlyActiveMinutes) AS high_activity_time,
+  SUM(LightlyActiveMinutes + SedentaryMinutes) AS low_activity_time,
+  SUM(VeryActiveMinutes + FairlyActiveMinutes + LightlyActiveMinutes + SedentaryMinutes) AS total_activity_time
+  FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Daily Activity 04_12_16_to_05_11_16` 
+GROUP BY ID; 
+
+## Table from daily activity measuring high activity time, low activity time, and total activitytime
+
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.total_minutes_03_16_to_04_16` AS
+SELECT 
+  ID,
+  SUM(VeryActiveMinutes) AS very_active_minutes,
+  SUM(FairlyActiveMinutes) AS fairly_active_minutes,
+  SUM(LightlyActiveMinutes) AS light_active_minutes,
+  SUM(SedentaryMinutes) AS sedentary_minutes,
+  SUM(VeryActiveMinutes + FairlyActiveMinutes) AS high_activity_time,
+  SUM(LightlyActiveMinutes + SedentaryMinutes) AS low_activity_time,
+  SUM(VeryActiveMinutes + FairlyActiveMinutes + LightlyActiveMinutes + SedentaryMinutes) AS total_activity_time
+  FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Daily Activity 03_12_16 to 04_11_16` 
+GROUP BY ID; 
+
+SELECT ID,
+high_activity_time,
+low_activity_time,
+CONCAT(ROUND(low_activity_time/total_activity_time * 100, 4),"%") AS percent_inactive,
+CONCAT(ROUND(high_activity_time/total_activity_time * 100, 4), "%") AS percent_active
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.total_minutes_03_16_to_04_16` 
+
+SELECT ID,
+high_activity_time,
+low_activity_time,
+CONCAT(ROUND(low_activity_time/total_activity_time * 100, 4),"%") AS percent_inactive,
+CONCAT(ROUND(high_activity_time/total_activity_time * 100, 4), "%") AS percent_active
+ FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.total_minutes_04_16_to_05_16` 
