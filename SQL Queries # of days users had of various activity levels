@@ -1,0 +1,53 @@
+## Total Steps for March 2016-April 2016
+
+This query is creating total steps classifications based on the number of steps each fitbit user recorded daily.
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.daily_steps_activity_03_16_to_04_16` AS 
+
+SELECT ID, 
+ActivityDate, 
+TotalSteps,
+CASE
+  WHEN TotalSteps < 5000 THEN "Sedentary"
+  WHEN TotalSteps >= 5000 AND TotalSteps <= 7499 THEN "Low Active"
+  WHEN TotalSteps >= 7500 AND TotalSteps <= 9999 THEN "Somewhat Active"
+  WHEN TotalSteps >= 10000 AND TotalSteps <= 12499 THEN "Active"
+  WHEN TotalSteps >=12500 THEN "Highly Active"
+END AS activity_classification
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.Daily Activity 03_12_16 to 04_11_16` 
+
+## Total Steps for April 2016-May 2016. 
+
+This query is creating total steps classifications based on the number of steps each fitbit user recorded daily.
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.daily_steps_activity_04_2016_to_05_2016` AS
+
+SELECT ID, 
+ActivityDate, 
+TotalSteps,
+CASE
+  WHEN TotalSteps < 5000 THEN "Sedentary"
+  WHEN TotalSteps >= 5000 AND TotalSteps <= 7499 THEN "Low Active"
+  WHEN TotalSteps >= 7500 AND TotalSteps <= 9999 THEN "Somewhat Active"
+  WHEN TotalSteps >= 10000 AND TotalSteps <= 12499 THEN "Active"
+  WHEN TotalSteps >=12500 THEN "Highly Active"
+END AS activity_classification
+FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Daily Activity 04_12_16_to_05_11_16` LIMIT 1000
+
+Utilize a subquery to count the total number of days for each step category by user ID for both the daily steps 03.2016-04.2016 table and the 04.2016-05.2016.
+SELECT ID,
+COUNTIF(activity_classification = "Active") AS active_days,
+COUNTIF(activity_classification = "Highly Active") AS highly_active_days,
+COUNTIF(activity_classification = "Low Active") AS low_active_days,
+COUNTIF(activity_classification = "Somewhat Active") AS somewhat_active_days,
+COUNTIF(activity_classification = "Sedentary") AS sedentary_days,
+COUNT(*) AS total_days
+ FROM (
+  SELECT ID, activity_classification
+  FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.daily_steps_activity_04_2016_to_05_2016` 
+
+  UNION ALL
+  SELECT ID, activity_classification
+  FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.daily_steps_activity_03_16_to_04_16`
+ ) 
+GROUP BY ID;
