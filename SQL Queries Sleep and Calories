@@ -1,0 +1,44 @@
+Utilized the created SQL tables mentioned in the Calories and METs query section. Specifically, the tables are named calories_id_day_03_16_to_04_16 and calories_id_by_day_04_16_to_05_16. 
+These tables were utilized in the calories per day section of the analysis.
+
+## Create sleep minutes sum total table by ID for March 2016-April 2016
+
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.total_sleep_minutes_03_16_to_04_16` AS
+SELECT ID,
+SUM(value) AS total_sleep_minutes,
+COUNT(DISTINCT ID_Key) AS days_with_sleep_minutes,
+ROUND(SUM(value) / COUNT(DISTINCT ID_Key), 2) AS sleep_minutes_per_day
+ FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.SleepMinutes_03_12_16_to_04_11_16` 
+GROUP BY ID;
+
+## Joining together matching IDs from calories id day 03.2016 to 04.2016 and total sleep minutes 03.2016 to 04.2016
+
+SELECT DISTINCT calories.ID,
+calories.avg_calories_by_id,
+sleep.sleep_minutes_per_day
+FROM `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.calories_id_day_03_16_to_04_16` AS calories
+INNER JOIN `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.total_sleep_minutes_03_16_to_04_16` AS sleep
+ON calories.ID = sleep.ID; 
+
+## Create sleep minutes sum total table by ID for April 2016-May 2016
+
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.total_sleep_minutes_04_16_to_05_16`  AS
+SELECT ID,
+SUM(value) AS total_sleep_minutes,
+COUNT(DISTINCT ID_Key) AS days_with_sleep_minutes,
+ROUND(SUM(value) / COUNT(DISTINCT ID_Key), 2) AS sleep_minutes_per_day
+ FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Minutes_Sleep 04_12_16 to 05_11_16`
+GROUP BY ID;
+
+## Create sleep minutes sum total table by ID for April 2016-May 2016
+
+
+CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.total_sleep_minutes_04_16_to_05_16`  AS
+SELECT ID,
+SUM(value) AS total_sleep_minutes,
+COUNT(DISTINCT ID_Key) AS days_with_sleep_minutes,
+ROUND(SUM(value) / COUNT(DISTINCT ID_Key), 2) AS sleep_minutes_per_day
+ FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Minutes_Sleep 04_12_16 to 05_11_16`
+GROUP BY ID;
