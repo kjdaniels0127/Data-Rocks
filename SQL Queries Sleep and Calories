@@ -32,6 +32,7 @@ ROUND(SUM(value) / COUNT(DISTINCT ID_Key), 2) AS sleep_minutes_per_day
  FROM `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.Minutes_Sleep 04_12_16 to 05_11_16`
 GROUP BY ID;
 
+## Joining together matching IDS from calories id day 04.2016-05.2016 and total sleep minutes 04.2016 to 05.2016.
 SELECT sleep.ID,
 sleep.total_sleep_minutes,
 intensities.weighted_avg_intensity_per_day
