@@ -106,6 +106,25 @@ I have completed the following projects: **Geographic Data Analysis of Asia, Ame
 4. South Africa had the third highest raised BP rate at 34.18% and second highest obesity rate at 23.63%.
 5. Positive correlation income levels and obesity rates
 
+## Data visualizations for Wellness Fitbit Tech: Consumer Trend Analysis 
+
+![Average Intensity and Average Sleep Minutes per day](https://github.com/user-attachments/assets/f695479e-48ee-438f-bb4b-efedff4a808d)
+![Average METS and Calories per Fitbit ID](https://github.com/user-attachments/assets/be11ffd5-7634-4a2a-8e49-b277d38f0173)
+![Average Sleep Minutes and Average Calories per day](https://github.com/user-attachments/assets/44af2726-e36a-425f-891e-0e576ca147fe)
+![Average Sleep Minutes and Average Heart Rate](https://github.com/user-attachments/assets/8ba40ced-c457-4bf4-bae7-413c8b317eb6)
+![Low Active and High Active Rates](https://github.com/user-attachments/assets/7af364c7-83c8-409c-b6cd-2af72d4adb44)
+![Weight and Average Calories](https://github.com/user-attachments/assets/a95b0de3-34f0-4756-a201-f017d2bdf2ab)
+![Weight and Average Daily Intensities](https://github.com/user-attachments/assets/ba85e555-7371-413b-b4f0-a35102863fa9)
+![Weight and Average METS](https://github.com/user-attachments/assets/f94f60d9-ad31-484e-9824-e04f581aabde)
+
+
+
+
+
+
+
+
+
 
 
 
