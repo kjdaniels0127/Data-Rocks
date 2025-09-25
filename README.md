@@ -38,6 +38,7 @@ I believe data can solve virtually any problem when analyzed correctly. To guide
 **My data analytics projects or case studies are attached as zip files!**
 I have completed the following projects: **Geographic Data Analysis of Asia, America, and Europe** 
 **The Cost of Inequality: Connection between socioeconomic status and health outcomes for 12 countries**
+**Wellness FitBit Tech: Consumer Trend Analysis**
 
 ## Here are links to my SQL queries utilized in these projects. 
 [SQL Queries] (https://github.com/kjdaniels0127/Data-Rocks/blob/sql/README%20(SQL).md) 
