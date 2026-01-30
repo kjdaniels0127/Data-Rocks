@@ -109,8 +109,13 @@ I have completed the following projects: **Geographic Data Analysis of Asia, Ame
 ## Data visualizations for Wellness Fitbit Tech: Consumer Trend Analysis 
 
 ![Average Intensity and Average Sleep Minutes per day](https://github.com/user-attachments/assets/f695479e-48ee-438f-bb4b-efedff4a808d)
+Based on the available data for the 30 Fitbit users, there seems to be no straightforward correlation between average intensity and average sleep minutes per day. 
+
 ![Average METS and Calories per Fitbit ID](https://github.com/user-attachments/assets/be11ffd5-7634-4a2a-8e49-b277d38f0173)
+Based on the available data for 30 Fitbit users, there appears to be a positive correlation between average METs and average daily calories burned. 
+
 ![Average Sleep Minutes and Average Calories per day](https://github.com/user-attachments/assets/44af2726-e36a-425f-891e-0e576ca147fe)
+
 ![Average Sleep Minutes and Average Heart Rate](https://github.com/user-attachments/assets/8ba40ced-c457-4bf4-bae7-413c8b317eb6)
 ![Low Active and High Active Rates](https://github.com/user-attachments/assets/7af364c7-83c8-409c-b6cd-2af72d4adb44)
 ![Weight and Average Calories](https://github.com/user-attachments/assets/a95b0de3-34f0-4756-a201-f017d2bdf2ab)
