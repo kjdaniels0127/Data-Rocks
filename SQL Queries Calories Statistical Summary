@@ -1,5 +1,5 @@
 ## Creatinga a table for Statistical summary for calories per hour for 03.12.2016 to 04.11.2016. 
-The statistical summary includes the minimum, quartile 1, average, quartile 3, and maximum of calories per hour for fitbit user IDs.
+The statistical summary includes the minimum, quartile 1, average, quartile 3, and maximum of calories per day for fitbit user IDs.
 
 CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_03_12_16_to_04_11_16.calories_stat_summary_03_16_to_04_16` AS 
 WITH calories_with_quartiles AS(
@@ -20,7 +20,7 @@ SELECT
 FROM calories_with_quartiles
 GROUP BY ID;
 
-## Statistical summary for calories per hour for 04.12.2016 to 05.11.2016
+## Statistical summary for calories per day for 04.12.2016 to 05.11.2016
 
 CREATE OR REPLACE TABLE `wellness-tech-play-it-smart.Fitbitdata_04_12_16_to_05_11_16.calories_stat_summary_04_16_to_05_16` AS 
 WITH calories_with_quartiles AS(
