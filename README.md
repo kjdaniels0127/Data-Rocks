@@ -116,7 +116,7 @@ Based on the available data for 30 Fitbit users, there appears to be a positive 
 No notable outliers based on available data. 
 ![Average Sleep Minutes and Average Calories per day](https://github.com/user-attachments/assets/44af2726-e36a-425f-891e-0e576ca147fe)
 Based on the available data for the 30 fitbit users, there seems to be a slight positive correlation between average calories burned and average sleep minutes per day. 
-There are a few notable outliers with the Fitbit users that were all above average outliers above 75th percentile or Quartile 3 in daily sleep minutes and below average outliers below 25th percentile or Quartile 1 in daily calories. 
+There are a few notable outliers among Fitbit users: all above the 75th percentile (Quartile 3) in daily sleep minutes and below the 25th percentile (Quartile 1) in daily calories. 
 The 25th percentile or Quartile 1 is 1904.48 for daily average calories and the 75th percentile or Quartile 3 is 488.33 for daily average sleep minutes 
 a.	User 4: 1416.69 average calories and 594.12 average sleep minutes per day.
 b.	User 15: 1523.53 average calories and 729.55 average sleep minutes per day. 
@@ -124,7 +124,19 @@ c.	User 27: 1821.51 average calories and 538.51 average sleep minutes per day.
 d.	User 13: 1494.97 average calories and 535.96 average sleep minutes per day. 
 
 ![Average Sleep Minutes and Average Heart Rate](https://github.com/user-attachments/assets/8ba40ced-c457-4bf4-bae7-413c8b317eb6)
-2.	Based on available data, There seems to be a positive correlation between average heart rate and average sleep minutes per day. 
+2.	Based on available data, there seems to be a positive correlation between average heart rate and average sleep minutes per day. 
+3.	There are a few outliers based on the Quartile 1 (25th percentile) and Quartile 3 (75th percentile) for both average heart rate and average sleep minutes per day.
+4.	Average Heart Rate
+a.	Quartile 1 (25th percentile): 68.25
+b.	Quartile 3 (75th percentile): 81.91
+5.	Average Daily Sleep Minutes
+a.	Quartile 1 (25th percentile): 203.89
+b.	Quartile 3 (75th percentile): 487.74
+6.	Outliers
+a.	User 27: Average Heart Rate is 65.63, and average daily sleep minutes is 538.51
+b.	User 20: Average Heart Rate is 88.11, and average daily sleep minutes is 74.81
+c.	User 13: Average Heart Rate is 66.14, and average daily sleep minutes is 535.96
+
 ![Low Active and High Active Rates](https://github.com/user-attachments/assets/7af364c7-83c8-409c-b6cd-2af72d4adb44)
 ![Weight and Average Calories](https://github.com/user-attachments/assets/14cc6246-91bf-4f06-ab2d-f8699a99358f)
 2.	Based on the available data, there seems to be no correlation between average weight and average calories burned per day. 
