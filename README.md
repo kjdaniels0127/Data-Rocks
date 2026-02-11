@@ -1,5 +1,7 @@
 # Welcome to my data analytics portfolio 
 
+Results-driven Data and Financial Analyst with expertise in financial modeling, variance analysis, and data-driven decision-making. Skilled in Excel (including macros/VBA), Power Query, SQL, and ERP systems to automate reports, streamline month-end close processes, and ensure accurate reconciliations. Experienced in building interactive charts with Tableau and Power BI, performing trend and ratio analysis, and translating complex datasets into actionable business insights. Passionate about data storytelling, process improvement, and using analytics to drive strategic decision-making. Data Projects include health trend analysis and cross-country comparisons of socioeconomic data. Committed to lifelong learning and sharing code, workflows, and analytics solutions that solve real-world business problems.
+
 Here's a collection of projects that demonstrate my ability to extract data insights, solve business problems, and communicate data effectively using tools like **Excel, SQL, Powerpoint and Tableau**.
 
 I believe data can solve virtually any problem when analyzed correctly. To guide my approach, I follow a structured **6-step analytics process**:
