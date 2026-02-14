@@ -48,9 +48,6 @@ I have completed the following projects: **Geographic Data Analysis of Asia, Ame
 **The Cost of Inequality: Connection between socioeconomic status and health outcomes for 12 countries**
 **Wellness FitBit Tech: Consumer Trend Analysis**
 
-## Here are links to my SQL queries utilized in these projects. 
-[SQL Queries] (https://github.com/kjdaniels0127/Data-Rocks/blob/sql/README%20(SQL).md) 
-
 ## Here's my visualizations for the Geographic Data Analysis of Asia, America, and Europe project 
 ![Asia, Europe, and Americas Geographic Visualization](https://github.com/user-attachments/assets/0080f884-cd1d-4950-b0de-eec052f8c551)
 
@@ -62,104 +59,6 @@ I have completed the following projects: **Geographic Data Analysis of Asia, Ame
 
 3.There are 4 subcontinents in America, Asia, and Europe. 
 
-## Here's my visualizations for The Cost of Inequality: Connection between socioeconomic status and healthcare outcomes for 12 countries.
-
-**Country Identifier Legend for the HIV Incidence Rates, health expenditure %, and income levels**
-![Country Code Identifier as Country Names](https://github.com/user-attachments/assets/6c9bce1a-5185-4b37-a63d-88312ec83d7a)
-
-
-![Obesity Rates and College Enrollment Rates ](https://github.com/user-attachments/assets/fe8864e7-84c3-4439-bfea-7587a59e9987) 
-
-1. Positive correlation obesity rates and enrollment rates
-2. Outlier: South Africa relatively high obesity rate at 23.63% and mid college enrollment at 20.48% which is sixth among countries.
-
-![Mortality Rate by Income](https://github.com/user-attachments/assets/daf48b95-834a-421e-bc13-a5f2fb326615)
-
-1. Strong negative correlation mortality rates and income levels
-2. South Africa was the outlier as an upper middle income nation with a relatively high mortalilty rate at 121.1. Which is higher than lower middle income nations Ghana and India and a bit lower than Congo. 
-![Life Expectancy and Health Expenditure % of GDP ](https://github.com/user-attachments/assets/f97248cb-f1e7-4b70-94a2-11365181032a)
-
-1. Slight to moderate positive correlation health expenditure and life expectancy
-2. Outlier: South Africa spent over 10% on health expenditure and low life expectancy of 61.44
-3. Outlier: Afghanistan spent over 8% on health expenditure and low life expectancy of 60.25
-![1992-2002 and 2012-2022 Unemployment Rate, BP Rate and Suicide Mortality Rate](https://github.com/user-attachments/assets/be112836-b7b2-460d-af98-26b9c006eac2)
-
-1. Slight positive correlation between unemployment rates and raised BP rates
-2. Slight positive correaltion between unemployment rates and suicide mortality rates
-3. UE rates slightly decreased in 2012-2022 from 1992-2002 for most countries
-4. Canada and France saw notable decreases in raised BP rates in 2012-2022 from 1992-2002 at 13.13% and 8%, respectively.
-5. No significant change in suicide mortaity rates in 2012-2022 from 1992-2002 for most countries.
-![2005-2012   2013-2020 HIV Incidence Rates, Enrollment Rates, and Income Levels](https://github.com/user-attachments/assets/91b2fa15-c2e7-41ac-ba86-b941d3b22427)
-
-1. No correlation HIV Incidence rates and college enrollment rates or income levels
-2. Outlier: South Africa significantly higher HIV Incidence rates at 9.92% in 2005-2012 and 6.41% in 2013-2020.
-3. Positive correlation income levels and college enrollment rates
-4. Slight negative correlation between HIV Incidence rates and income status in both 2005-2012 and 2013-2020
-![Life Expectancy and Mortality Rates by Income](https://github.com/user-attachments/assets/748235d0-4a51-40c6-b5c2-8a420ee804df)
-
-1. Moderate positive correlation between life expectancu and income levels
-2. Outlier: South Africa there's life expectancy at 61.44 in the bottom three as an upper-middle income nation
-3. I strongly suspect that South Africa having the highest HIV rates in the world per National Library of Medecine plays a significant role in the life expectancy.
-4. No suprise here as income levels of a nation do a play a significant role in having higher quality healthcare services that can prevent premature deaths and extend the lifespan of individuals.
-   
-![2005-2013   2014-2020 HIV Incidence Rates, Health Expenditure %, and Income Levels](https://github.com/user-attachments/assets/c06fd068-515e-4f92-a6ed-2e8748439b8a)
-
-1. Negative correlation health expenditure and HIV Incidence rates
-2. Outlier: South Africa. Pretty consistent theme with the HIV Incidence correlations for sure. 
-![1992-2022 Obesity Prevelance Rates and Raised BP Rates ](https://github.com/user-attachments/assets/3c3e60f3-1fd2-4509-8f8b-033d830cd6d0)
-
-1. Slight negative correlation income levels and raised blood pressure rates
-2. Outlier: Dominican Republic and South Africa
-3. Dominican Republic had highest raised BP rate at 38.38% and fourth highest obesity rate at 18.71%
-4. South Africa had the third highest raised BP rate at 34.18% and second highest obesity rate at 23.63%.
-5. Positive correlation income levels and obesity rates
-
-## Data visualizations for Wellness Fitbit Tech: Consumer Trend Analysis 
-
-![Average Intensity and Average Sleep Minutes per day](https://github.com/user-attachments/assets/f695479e-48ee-438f-bb4b-efedff4a808d)
-Based on the available data for the 30 Fitbit users, there seems to be no straightforward correlation between average intensity and average sleep minutes per day. 
-
-![Average METS and Calories per Fitbit ID](https://github.com/user-attachments/assets/be11ffd5-7634-4a2a-8e49-b277d38f0173)
-Based on the available data for 30 Fitbit users, there appears to be a positive correlation between average METs and average daily calories burned. 
-No notable outliers based on available data. 
-![Average Sleep Minutes and Average Calories per day](https://github.com/user-attachments/assets/44af2726-e36a-425f-891e-0e576ca147fe)
-Based on the available data for the 30 fitbit users, there seems to be a slight positive correlation between average calories burned and average sleep minutes per day. 
-There are a few notable outliers among Fitbit users: all above the 75th percentile (Quartile 3) in daily sleep minutes and below the 25th percentile (Quartile 1) in daily calories. 
-The 25th percentile or Quartile 1 is 1904.48 for daily average calories and the 75th percentile or Quartile 3 is 488.33 for daily average sleep minutes 
-a.	User 4: 1416.69 average calories and 594.12 average sleep minutes per day.
-b.	User 15: 1523.53 average calories and 729.55 average sleep minutes per day. 
-c.	User 27: 1821.51 average calories and 538.51 average sleep minutes per day.
-d.	User 13: 1494.97 average calories and 535.96 average sleep minutes per day. 
-
-![Average Sleep Minutes and Average Heart Rate](https://github.com/user-attachments/assets/8ba40ced-c457-4bf4-bae7-413c8b317eb6)
-2.	Based on available data, there seems to be a positive correlation between average heart rate and average sleep minutes per day. 
-3.	There are a few outliers based on the Quartile 1 (25th percentile) and Quartile 3 (75th percentile) for both average heart rate and average sleep minutes per day.
-4.	Average Heart Rate
-a.	Quartile 1 (25th percentile): 68.25
-b.	Quartile 3 (75th percentile): 81.91
-5.	Average Daily Sleep Minutes
-a.	Quartile 1 (25th percentile): 203.89
-b.	Quartile 3 (75th percentile): 487.74
-6.	Outliers
-a.	User 27: Average Heart Rate is 65.63, and average daily sleep minutes is 538.51
-b.	User 20: Average Heart Rate is 88.11, and average daily sleep minutes is 74.81
-c.	User 13: Average Heart Rate is 66.14, and average daily sleep minutes is 535.96
-
-![Low Active and High Active Rates](https://github.com/user-attachments/assets/7af364c7-83c8-409c-b6cd-2af72d4adb44)
-![Weight and Average Calories](https://github.com/user-attachments/assets/14cc6246-91bf-4f06-ab2d-f8699a99358f)
-2.	Based on the available data, there seems to be no correlation between average weight and average calories burned per day. 
-
-![Weight and Average Daily Intensities](https://github.com/user-attachments/assets/ba85e555-7371-413b-b4f0-a35102863fa9)
-2.	Based on available data, there seems to be no correlation between weight and average daily intensity for the Fitbit users. 
-![Weight and Average METS](https://github.com/user-attachments/assets/f94f60d9-ad31-484e-9824-e04f581aabde)
-Based on the available data, there seems to be a slight positive correlation between weight and average METS per day. 
-Average Weight Outliers
-a.	25th percentile (Quartile 1): 138.05 
-b.	75th percentile (Quartile 3): 202
-Average METs Outliers
-a.	25th percentile (Quartile 1): 16833.58
-b.	75th percentile (Quartile 3): 24256.92
-Two notable outliers are: User 24 and User 22. User 24 was an outlier above 75th percentile (Quartile 3) or average weight and below 25th percentile (Quartile 1) for average METs per day. User 22 was an outlier below 25th percentile (Quartile 1) for average weight and above 75th percentile (Quartile 3) for average METs per day. 
 
 
 
