@@ -59,6 +59,16 @@ I have completed the following projects: **Geographic Data Analysis of Asia, Ame
 
 3.There are 4 subcontinents in America, Asia, and Europe. 
 
+## Here are some of the other data projects I have worked on. 
+
+**Cost of Inequality: Socioeconomic Status for 12 countries** 
+(https://github.com/kjdaniels0127/Cost-of-Inequality-Socioeconomic-Status-12-Countries)
+
+**Fit Bit Wellness**
+(https://github.com/kjdaniels0127/Fitbit-Wellness-Project-)
+
+
+
 
 
 
